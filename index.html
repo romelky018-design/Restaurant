@@ -1,17 +1,14 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>PRIME CREATIVE | Graphic Design · 3D · Web & App · Digital Marketing</title>
-    <!-- Google Fonts & simple reset -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
-    <!-- Font Awesome 6 (free icons) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* ── root / reset ── */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
         :root {
             --bg-primary: #ffffff; --bg-secondary: #f9fafb; --text-primary: #111827;
             --text-secondary: #4b5563; --text-muted: #6b7280; --card-bg: #ffffff;
@@ -35,11 +32,11 @@
             transition: background-color 0.3s, color 0.2s;
         }
         .container { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
-
-        /* ── header / nav ── */
         .navbar { display: flex; justify-content: space-between; align-items: center; padding: 24px 0; flex-wrap: wrap; gap: 20px; }
-        .logo-img { height: 52px; display: flex; align-items: center; }
-        .logo-img img { height: 100%; width: auto; max-height: 52px; object-fit: contain; }
+        .logo-wrapper { display: flex; align-items: center; gap: 12px; }
+        .logo-img { height: 44px; display: flex; align-items: center; flex-shrink: 0; }
+        .logo-img img { height: 100%; width: auto; max-height: 44px; object-fit: contain; border-radius: 12px; }
+        .logo-text { font-size: 24px; font-weight: 800; background: linear-gradient(120deg, var(--accent), #a855f7); background-clip: text; -webkit-background-clip: text; color: transparent; letter-spacing: -0.5px; white-space: nowrap; }
         .logo-fallback { font-size: 28px; font-weight: 800; background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent) 100%); background-clip: text; -webkit-background-clip: text; color: transparent; }
         .nav-links { display: flex; gap: 28px; align-items: center; flex-wrap: wrap; }
         .nav-links a { text-decoration: none; font-weight: 500; color: var(--text-secondary); transition: color 0.2s; font-size: 1rem; }
@@ -56,12 +53,15 @@
         .btn-secondary:hover { border-color: var(--accent); background: var(--bg-secondary); }
         .hero { padding: 60px 0 80px 0; }
         .hero-grid { display: flex; align-items: center; gap: 48px; flex-wrap: wrap; }
-        .hero-content { flex: 1; }
-        .hero-badge { background: rgba(79,70,229,0.1); color: var(--accent); display: inline-block; padding: 6px 14px; border-radius: 30px; font-size: 0.85rem; font-weight: 600; margin-bottom: 24px; }
-        .hero-content h1 { font-size: 3.5rem; font-weight: 800; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 20px; }
+        .hero-content { flex: 1; text-align: center; }
+        .hero-content h1 { font-size: 3.5rem; font-weight: 800; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 8px; }
         .hero-highlight { background: linear-gradient(120deg, var(--accent), #a855f7); background-clip: text; -webkit-background-clip: text; color: transparent; }
-        .hero-content p { font-size: 1.2rem; color: var(--text-secondary); margin-bottom: 32px; max-width: 90%; }
-        .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
+        .hero-content .hero-sub { font-size: 1.2rem; margin-bottom: 24px; min-height: 2.2em; font-weight: 400; }
+        .hero-content .hero-sub .typing-text { background: linear-gradient(120deg, var(--accent), #a855f7); background-clip: text; -webkit-background-clip: text; color: transparent; }
+        .hero-content .hero-sub .cursor { display: inline-block; width: 2px; height: 1.2em; background: var(--accent); margin-left: 2px; vertical-align: text-bottom; animation: blink 0.8s step-end infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+        .hero-content p { font-size: 1.2rem; color: var(--text-secondary); margin-bottom: 32px; max-width: 90%; margin-left: auto; margin-right: auto; }
+        .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
         .hero-visual { flex: 1; background: var(--bg-secondary); border-radius: 40px; padding: 24px; text-align: center; box-shadow: var(--shadow-sm); border: 1px solid var(--border-light); }
         .grid-icons { display: grid; grid-template-columns: repeat(2,1fr); gap: 24px; }
         .icon-card { background: var(--card-bg); padding: 24px 12px; border-radius: 28px; text-align: center; box-shadow: 0 8px 20px rgba(0,0,0,0.02); border: 1px solid var(--border-light); transition: var(--transition); display: block; text-decoration: none; color: inherit; }
@@ -81,6 +81,7 @@
         .stats-grid { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 32px; margin: 48px 0 32px; text-align: center; }
         .stat-item { flex: 1; min-width: 150px; background: var(--card-bg); padding: 32px 24px; border-radius: 32px; border: 1px solid var(--border-light); transition: var(--transition); }
         .stat-number { font-size: 3rem; font-weight: 800; color: var(--accent); line-height: 1; }
+        .stat-number .plus { font-size: 2.2rem; }
         .stat-label { margin-top: 12px; color: var(--text-muted); font-weight: 500; }
         .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 32px; margin-top: 32px; }
         .testimonial-card { background: var(--card-bg); border-radius: 28px; padding: 28px; border: 1px solid var(--border-light); transition: var(--transition); }
@@ -120,19 +121,113 @@
         .menu-toggle { display: none; font-size: 1.8rem; cursor: pointer; background: none; border: none; color: var(--text-primary); }
         @media (max-width: 800px) {
             .menu-toggle { display: block; }
-            .nav-links { position: fixed; top: 80px; left: -100%; flex-direction: column; background: var(--bg-primary); width: 80%; height: calc(100vh - 80px); padding: 40px 24px; transition: left 0.3s ease; box-shadow: 5px 0 20px rgba(0,0,0,0.1); z-index: 100; gap: 28px; align-items: flex-start; border-right: 1px solid var(--border-light); }
+            .nav-links { 
+                position: fixed; 
+                top: 80px; 
+                left: -100%; 
+                flex-direction: column; 
+                background: var(--bg-primary); 
+                width: 80%; 
+                height: calc(100vh - 80px); 
+                padding: 40px 24px; 
+                transition: left 0.3s ease; 
+                box-shadow: 5px 0 20px rgba(0,0,0,0.1); 
+                z-index: 100; 
+                gap: 20px; 
+                align-items: flex-start; 
+                border-right: 1px solid var(--border-light); 
+                overflow-y: auto; 
+                justify-content: flex-start;
+            }
+            .nav-links .nav-bottom {
+                margin-top: auto;
+                padding-top: 16px;
+                border-top: 1px solid var(--border-light);
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+                align-items: flex-start;
+            }
             .nav-links.open { left: 0; }
             .hero-content h1 { font-size: 2.5rem; }
             .hero-content p { max-width: 100%; }
             .container { padding: 0 24px; }
-            .lang-selector { order: 2; margin-top: 8px; }
             .back-to-top { left: 16px; bottom: 16px; width: 42px; height: 42px; font-size: 1rem; }
+            .logo-text { font-size: 18px; }
+            .logo-img { height: 36px; }
+            .logo-img img { max-height: 36px; }
+        }
+        @media (max-width: 480px) {
+            .logo-text { font-size: 16px; }
+            .logo-img { height: 32px; }
+            .logo-img img { max-height: 32px; border-radius: 8px; }
+            .logo-wrapper { gap: 8px; }
         }
         .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
         .fade-up.revealed { opacity: 1; transform: translateY(0); }
         .social-links a { color: var(--text-muted); }
         .social-links a:hover { color: var(--accent); }
         [data-translate] { transition: all 0.1s; }
+
+        /* ─── DROPDOWN NAV ─── */
+        .nav-item-with-sub { position: relative; }
+        .nav-item-with-sub > a { display: flex; align-items: center; gap: 4px; cursor: pointer; }
+        .nav-item-with-sub > a .arrow { font-size: 0.6rem; transition: transform 0.3s; }
+        .nav-item-with-sub.open > a .arrow { transform: rotate(180deg); }
+        .sub-menu { display: none; flex-direction: column; gap: 8px; padding-left: 20px; margin-top: 8px; list-style: none; }
+        .nav-item-with-sub.open .sub-menu { display: flex; }
+        .sub-menu a { font-size: 0.9rem; font-weight: 400; color: var(--text-secondary); text-decoration: none; transition: color 0.2s; }
+        .sub-menu a:hover { color: var(--accent); }
+
+        @media (min-width: 801px) {
+            .nav-item-with-sub { position: relative; }
+            .nav-item-with-sub .sub-menu { 
+                position: absolute; 
+                top: 100%; 
+                left: 0; 
+                background: var(--bg-primary); 
+                border: 1px solid var(--border-light); 
+                border-radius: 12px; 
+                padding: 12px 18px; 
+                min-width: 180px; 
+                box-shadow: var(--shadow-md); 
+                gap: 10px; 
+                display: none; 
+                flex-direction: column; 
+                z-index: 10; 
+                margin-top: 8px; 
+            }
+            .nav-item-with-sub:hover .sub-menu { display: flex; }
+            .nav-item-with-sub:hover > a .arrow { transform: rotate(180deg); }
+            .nav-item-with-sub .sub-menu a { font-size: 0.9rem; color: var(--text-secondary); white-space: nowrap; }
+            .nav-item-with-sub .sub-menu a:hover { color: var(--accent); }
+            .nav-links .lang-selector { margin-left: 8px; }
+            .nav-links .nav-bottom { display: none; }
+        }
+        @media (max-width: 800px) {
+            .sub-menu { padding-left: 20px; margin-top: 8px; }
+            .nav-item-with-sub .sub-menu { 
+                position: static; 
+                box-shadow: none; 
+                border: none; 
+                background: transparent; 
+                padding-left: 20px; 
+                margin-top: 8px; 
+            }
+            .nav-item-with-sub.open .sub-menu { display: flex; }
+            .nav-item-with-sub > a .arrow { margin-left: 4px; }
+            .nav-links .nav-bottom .lang-selector { 
+                margin-left: 0; 
+                margin-top: 0; 
+            }
+            .nav-links .nav-bottom .theme-toggle { 
+                margin-top: 0; 
+            }
+            .nav-links .nav-bottom .btn-outline { 
+                display: none; 
+            }
+        }
 
         /* ─── CHAT WIDGET ─── */
         .chat-widget { position: fixed; bottom: 30px; right: 30px; z-index: 1000; display: flex; flex-direction: column; align-items: flex-end; font-family: 'Inter', sans-serif; }
@@ -208,255 +303,74 @@
             .chat-header { padding: 12px 16px; }
         }
 
-        /* ─── PORTFOLIO SLIDESHOW (Integrated) ─── */
-        .slideshow-wrapper {
-            max-width: 1100px;
-            margin: 0 auto 40px auto;
-            background: var(--bg-secondary);
-            border-radius: 32px;
-            padding: 28px 28px 20px;
-            box-shadow: var(--shadow-sm);
-            border: 1px solid var(--border-light);
-            transition: box-shadow 0.4s, background 0.3s;
-        }
+        /* ─── PORTFOLIO SLIDESHOW ─── */
+        .slideshow-wrapper { max-width: 1100px; margin: 0 auto 40px auto; background: var(--bg-secondary); border-radius: 32px; padding: 28px 28px 20px; box-shadow: var(--shadow-sm); border: 1px solid var(--border-light); transition: box-shadow 0.4s, background 0.3s; }
         .slideshow-wrapper:hover { box-shadow: var(--shadow-md); }
-
-        .slideshow-wrapper .portfolio-header {
-            text-align: center;
-            margin-bottom: 22px;
-        }
-        .slideshow-wrapper .main-title {
-            font-size: 2.2rem;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            color: var(--text-primary);
-            text-shadow: 0 2px 20px rgba(79,70,229,0.08);
-        }
+        .slideshow-wrapper .portfolio-header { text-align: center; margin-bottom: 22px; }
+        .slideshow-wrapper .main-title { font-size: 2.2rem; font-weight: 700; letter-spacing: -0.5px; color: var(--text-primary); text-shadow: 0 2px 20px rgba(79,70,229,0.08); }
         .slideshow-wrapper .main-title span { color: var(--accent); }
-
-        .slide-viewport {
-            position: relative;
-            width: 100%;
-            aspect-ratio: 1 / 1;
-            border-radius: 20px;
-            overflow: hidden;
-            background: var(--bg-primary);
-            cursor: pointer;
-            perspective: 1200px;
-            touch-action: none;
-            border: 1px solid var(--border-light);
-        }
-        .slide {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            border-radius: 16px;
-            overflow: hidden;
-            transition: transform 0.85s cubic-bezier(0.22, 0.61, 0.36, 1),
-                        opacity 0.85s cubic-bezier(0.22, 0.61, 0.36, 1),
-                        box-shadow 0.85s cubic-bezier(0.22, 0.61, 0.36, 1);
-            will-change: transform, opacity;
-            backface-visibility: hidden;
-            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
-        }
-        .slide img {
-            width: 110%; height: 110%;
-            object-fit: cover; display: block;
-            transition: transform 0.85s cubic-bezier(0.22, 0.61, 0.36, 1);
-            will-change: transform;
-            position: relative; left: -5%; top: -5%;
-        }
-        .click-hint {
-            position: absolute; bottom: 24px; right: 24px;
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-            padding: 6px 16px; border-radius: 40px;
-            font-size: 0.7rem; color: rgba(255,255,255,0.5);
-            border: 1px solid rgba(255,255,255,0.06);
-            pointer-events: none; letter-spacing: 0.4px; text-transform: uppercase;
-            opacity: 0; transition: opacity 0.6s ease 0.2s; z-index: 10;
-        }
+        .slide-viewport { position: relative; width: 100%; aspect-ratio: 1 / 1; border-radius: 20px; overflow: hidden; background: var(--bg-primary); cursor: grab; perspective: 1200px; touch-action: none; border: 1px solid var(--border-light); user-select: none; }
+        .slide-viewport:active { cursor: grabbing; }
+        .slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 16px; overflow: hidden; transition: transform 0.85s cubic-bezier(0.22,0.61,0.36,1), opacity 0.85s cubic-bezier(0.22,0.61,0.36,1), box-shadow 0.85s cubic-bezier(0.22,0.61,0.36,1); will-change: transform, opacity; backface-visibility: hidden; box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5); pointer-events: none; }
+        .slide.active { pointer-events: auto; }
+        .slide img { width: 110%; height: 110%; object-fit: cover; display: block; transition: transform 0.85s cubic-bezier(0.22,0.61,0.36,1); will-change: transform; position: relative; left: -5%; top: -5%; pointer-events: none; }
+        .click-hint { position: absolute; bottom: 24px; right: 24px; background: rgba(255,255,255,0.1); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); padding: 6px 16px; border-radius: 40px; font-size: 0.7rem; color: rgba(255,255,255,0.5); border: 1px solid rgba(255,255,255,0.06); pointer-events: none; letter-spacing: 0.4px; text-transform: uppercase; opacity: 0; transition: opacity 0.6s ease 0.2s; z-index: 10; }
         .slide.active .click-hint { opacity: 1; }
-
-        .progress-bar-container {
-            width: 100%; height: 3px;
-            background: var(--border-medium);
-            border-radius: 2px; margin-top: 6px;
-            overflow: hidden; position: relative;
-        }
-        .progress-bar {
-            height: 100%; width: 100%;
-            background: var(--accent);
-            border-radius: 2px;
-            box-shadow: 0 0 12px rgba(79,70,229,0.3);
-            will-change: transform;
-            transform: scaleX(0);
-            transform-origin: left;
-        }
-
-        .controls-bar {
-            display: flex; justify-content: space-between;
-            align-items: center; margin-top: 14px; padding: 0 6px;
-        }
+        .progress-bar-container { width: 100%; height: 3px; background: var(--border-medium); border-radius: 2px; margin-top: 6px; overflow: hidden; position: relative; }
+        .progress-bar { height: 100%; width: 100%; background: var(--accent); border-radius: 2px; box-shadow: 0 0 12px rgba(79,70,229,0.3); will-change: transform; transform: scaleX(0); transform-origin: left; }
+        .controls-bar { display: flex; justify-content: space-between; align-items: center; margin-top: 14px; padding: 0 6px; }
         .dots { display: flex; gap: 10px; align-items: center; }
-        .dot {
-            width: 10px; height: 10px; border-radius: 50%;
-            background: var(--border-medium);
-            border: none; cursor: pointer;
-            transition: all 0.35s ease; padding: 0; flex-shrink: 0;
-        }
+        .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--border-medium); border: none; cursor: pointer; transition: all 0.35s ease; padding: 0; flex-shrink: 0; }
         .dot.active { background: var(--accent); box-shadow: 0 0 20px rgba(79,70,229,0.4); transform: scale(1.25); }
         .dot:hover { background: var(--text-muted); transform: scale(1.1); }
-
         .nav-buttons { display: flex; gap: 12px; align-items: center; }
-        .nav-btn {
-            background: var(--bg-primary); border: 1px solid var(--border-medium);
-            color: var(--text-secondary); width: 44px; height: 44px;
-            border-radius: 50%; font-size: 1.3rem; cursor: pointer;
-            transition: all 0.25s ease; display: flex; align-items: center;
-            justify-content: center; font-weight: 300; line-height: 1;
-            backdrop-filter: blur(4px);
-        }
+        .nav-btn { background: var(--bg-primary); border: 1px solid var(--border-medium); color: var(--text-secondary); width: 44px; height: 44px; border-radius: 50%; font-size: 1.3rem; cursor: pointer; transition: all 0.25s ease; display: flex; align-items: center; justify-content: center; font-weight: 300; line-height: 1; backdrop-filter: blur(4px); }
         .nav-btn:hover { background: var(--accent); color: #fff; transform: scale(1.06); border-color: var(--accent); }
         .nav-btn:active { transform: scale(0.92); }
-
-        .slide-counter {
-            color: var(--text-muted); font-size: 0.9rem;
-            font-weight: 600; letter-spacing: 0.5px;
-            min-width: 30px; text-align: center;
-            font-variant-numeric: tabular-nums;
-        }
-        .fullscreen-btn {
-            background: var(--bg-primary); border: 1px solid var(--border-medium);
-            color: var(--text-secondary); width: 44px; height: 44px;
-            border-radius: 50%; font-size: 1.2rem; cursor: pointer;
-            transition: all 0.25s ease; display: flex; align-items: center; justify-content: center;
-        }
+        .slide-counter { color: var(--text-muted); font-size: 0.9rem; font-weight: 600; letter-spacing: 0.5px; min-width: 30px; text-align: center; font-variant-numeric: tabular-nums; }
+        .fullscreen-btn { background: var(--bg-primary); border: 1px solid var(--border-medium); color: var(--text-secondary); width: 44px; height: 44px; border-radius: 50%; font-size: 1.2rem; cursor: pointer; transition: all 0.25s ease; display: flex; align-items: center; justify-content: center; }
         .fullscreen-btn:hover { background: var(--accent); color: #fff; transform: scale(1.06); border-color: var(--accent); }
         .fullscreen-btn:active { transform: scale(0.92); }
-
-        .portfolio-categories {
-            display: flex; justify-content: center; align-items: center;
-            gap: 0; margin-top: 20px; padding: 8px 0 4px 0;
-        }
-        .category-item {
-            text-align: center; padding: 4px 24px; min-width: 140px;
-            transition: color 0.4s ease; color: var(--text-muted);
-            cursor: pointer; user-select: none; position: relative;
-        }
+        .portfolio-categories { display: flex; justify-content: center; align-items: center; gap: 0; margin-top: 20px; padding: 8px 0 4px 0; }
+        .category-item { text-align: center; padding: 4px 24px; min-width: 140px; transition: color 0.4s ease; color: var(--text-muted); cursor: pointer; user-select: none; position: relative; }
         .category-item:hover { color: var(--text-secondary); }
         .category-item .cat-main { display: block; font-size: 0.95rem; font-weight: 500; letter-spacing: 0.5px; text-transform: uppercase; color: inherit; }
         .category-item .cat-sub { display: block; font-size: 0.75rem; font-weight: 400; letter-spacing: 0.3px; text-transform: uppercase; color: inherit; opacity: 0.7; margin-top: 1px; }
         .category-item.active { color: var(--accent); }
         .category-item.active .cat-sub { opacity: 1; }
         .category-divider { width: 1px; height: 40px; background: var(--border-medium); flex-shrink: 0; }
-
-        .thumbnail-strip-wrapper {
-            position: relative; margin-top: 10px; overflow: hidden;
-        }
-        .thumbnail-strip-wrapper::before,
-        .thumbnail-strip-wrapper::after {
-            content: ''; position: absolute; top: 0; bottom: 0; width: 40px; z-index: 2; pointer-events: none;
-        }
+        .thumbnail-strip-wrapper { position: relative; margin-top: 10px; overflow: hidden; }
+        .thumbnail-strip-wrapper::before, .thumbnail-strip-wrapper::after { content: ''; position: absolute; top: 0; bottom: 0; width: 40px; z-index: 2; pointer-events: none; }
         .thumbnail-strip-wrapper::before { left: 0; background: linear-gradient(to right, var(--bg-secondary), transparent); }
         .thumbnail-strip-wrapper::after { right: 0; background: linear-gradient(to left, var(--bg-secondary), transparent); }
-
-        .thumbnail-strip {
-            display: flex; gap: 8px; overflow-x: auto;
-            padding: 10px 40px 6px 40px;
-            scrollbar-width: thin; scrollbar-color: var(--border-medium) transparent;
-            -webkit-overflow-scrolling: touch;
-        }
+        .thumbnail-strip { display: flex; gap: 8px; overflow-x: auto; padding: 10px 40px 6px 40px; scrollbar-width: thin; scrollbar-color: var(--border-medium) transparent; -webkit-overflow-scrolling: touch; }
         .thumbnail-strip::-webkit-scrollbar { height: 4px; }
         .thumbnail-strip::-webkit-scrollbar-track { background: transparent; }
         .thumbnail-strip::-webkit-scrollbar-thumb { background: var(--border-medium); border-radius: 10px; }
-
-        .thumbnail-strip img {
-            height: 60px; width: 60px; object-fit: cover; border-radius: 8px;
-            cursor: pointer; border: 2px solid transparent;
-            transition: border-color 0.3s ease, transform 0.3s ease, filter 0.3s ease;
-            flex-shrink: 0; filter: brightness(0.7) saturate(0.8);
-        }
+        .thumbnail-strip img { height: 60px; width: 60px; object-fit: cover; border-radius: 8px; cursor: pointer; border: 2px solid transparent; transition: border-color 0.3s ease, transform 0.3s ease, filter 0.3s ease; flex-shrink: 0; filter: brightness(0.7) saturate(0.8); }
         .thumbnail-strip img:hover { transform: scale(1.05); filter: brightness(1) saturate(1); }
         .thumbnail-strip img.active { border-color: var(--accent); box-shadow: 0 0 20px rgba(79,70,229,0.3); filter: brightness(1) saturate(1); }
-
-        /* Lightbox */
-        .lightbox-overlay {
-            display: none; position: fixed; inset: 0;
-            background: rgba(0,0,0,0.92); backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px); z-index: 2000;
-            justify-content: center; align-items: center; padding: 20px;
-            animation: fadeIn 0.4s ease;
-        }
+        .lightbox-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.92); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); z-index: 2000; justify-content: center; align-items: center; padding: 20px; animation: fadeIn 0.4s ease; }
         .lightbox-overlay.open { display: flex; }
-        .lightbox-content {
-            position: relative; max-width: 90vw; max-height: 90vh;
-            display: flex; flex-direction: column; align-items: center;
-            justify-content: center; width: 100%; height: 100%;
-        }
-        .lightbox-img-container {
-            position: relative; width: 100%; height: 80vh;
-            display: flex; align-items: center; justify-content: center;
-        }
-        .lightbox-img-container img {
-            max-width: 100%; max-height: 100%; object-fit: contain;
-            border-radius: 12px; box-shadow: 0 20px 60px rgba(0,0,0,0.8);
-            animation: slideUp 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-        .lightbox-info {
-            color: #fff; text-align: center; margin-top: 16px; max-width: 600px;
-        }
+        .lightbox-content { position: relative; max-width: 90vw; max-height: 90vh; display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; height: 100%; }
+        .lightbox-img-container { position: relative; width: 100%; height: 80vh; display: flex; align-items: center; justify-content: center; }
+        .lightbox-img-container img { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 12px; box-shadow: 0 20px 60px rgba(0,0,0,0.8); animation: slideUp 0.5s cubic-bezier(0.22,1,0.36,1); }
+        .lightbox-info { color: #fff; text-align: center; margin-top: 16px; max-width: 600px; }
         .lightbox-info h2 { font-size: 1.6rem; font-weight: 600; margin-bottom: 2px; }
-        .lightbox-info .lightbox-sub {
-            font-size: 0.85rem; color: #8a94b0;
-            display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
-        }
-        .lightbox-info .lightbox-sub span {
-            background: #252e42; padding: 2px 14px; border-radius: 30px;
-            font-size: 0.7rem; color: #b0bedc;
-        }
+        .lightbox-info .lightbox-sub { font-size: 0.85rem; color: #8a94b0; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+        .lightbox-info .lightbox-sub span { background: #252e42; padding: 2px 14px; border-radius: 30px; font-size: 0.7rem; color: #b0bedc; }
         .lightbox-info p { font-size: 0.95rem; color: #c8d0e4; margin-top: 6px; line-height: 1.6; }
-
-        .lightbox-nav {
-            position: absolute; top: 50%; transform: translateY(-50%);
-            background: rgba(255,255,255,0.08); backdrop-filter: blur(8px);
-            border: 1px solid rgba(255,255,255,0.1); color: #fff;
-            width: 56px; height: 56px; border-radius: 50%; font-size: 1.8rem;
-            cursor: pointer; transition: all 0.25s ease;
-            display: flex; align-items: center; justify-content: center; z-index: 10;
-        }
+        .lightbox-nav { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.08); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.1); color: #fff; width: 56px; height: 56px; border-radius: 50%; font-size: 1.8rem; cursor: pointer; transition: all 0.25s ease; display: flex; align-items: center; justify-content: center; z-index: 10; }
         .lightbox-nav:hover { background: rgba(255,255,255,0.15); transform: translateY(-50%) scale(1.05); }
         .lightbox-nav.prev { left: 10px; }
         .lightbox-nav.next { right: 10px; }
-
-        .lightbox-close {
-            position: absolute; top: 20px; right: 30px;
-            background: rgba(255,255,255,0.08); backdrop-filter: blur(8px);
-            border: 1px solid rgba(255,255,255,0.1); color: #fff;
-            width: 48px; height: 48px; border-radius: 50%; font-size: 1.5rem;
-            cursor: pointer; transition: all 0.25s ease;
-            display: flex; align-items: center; justify-content: center; z-index: 10;
-        }
+        .lightbox-close { position: absolute; top: 20px; right: 30px; background: rgba(255,255,255,0.08); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.1); color: #fff; width: 48px; height: 48px; border-radius: 50%; font-size: 1.5rem; cursor: pointer; transition: all 0.25s ease; display: flex; align-items: center; justify-content: center; z-index: 10; }
         .lightbox-close:hover { background: rgba(255,255,255,0.15); transform: scale(1.05); }
-        .lightbox-counter {
-            position: absolute; bottom: 20px; right: 30px;
-            color: rgba(255,255,255,0.4); font-size: 0.8rem;
-            letter-spacing: 0.5px; background: rgba(0,0,0,0.3);
-            padding: 4px 12px; border-radius: 20px; backdrop-filter: blur(4px);
-        }
-        .lightbox-link {
-            display: inline-block; background: #1e2535; color: var(--accent);
-            padding: 6px 18px; border-radius: 40px; text-decoration: none;
-            font-size: 0.8rem; font-weight: 500; border: 1px solid #2a3248;
-            transition: background 0.2s, color 0.2s; margin-top: 6px;
-        }
+        .lightbox-counter { position: absolute; bottom: 20px; right: 30px; color: rgba(255,255,255,0.4); font-size: 0.8rem; letter-spacing: 0.5px; background: rgba(0,0,0,0.3); padding: 4px 12px; border-radius: 20px; backdrop-filter: blur(4px); }
+        .lightbox-link { display: inline-block; background: #1e2535; color: var(--accent); padding: 6px 18px; border-radius: 40px; text-decoration: none; font-size: 0.8rem; font-weight: 500; border: 1px solid #2a3248; transition: background 0.2s, color 0.2s; margin-top: 6px; }
         .lightbox-link:hover { background: #2a3248; color: var(--accent-hover); }
-
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(30px) scale(0.96); }
-            to { opacity: 1; transform: translateY(0) scale(1); }
-        }
-
+        @keyframes slideUp { from { opacity: 0; transform: translateY(30px) scale(0.96); } to { opacity: 1; transform: translateY(0) scale(1); } }
         @media (max-width: 768px) {
             .slideshow-wrapper { padding: 16px; border-radius: 20px; }
             .slide-viewport { border-radius: 14px; }
@@ -511,22 +425,59 @@
     <header>
         <div class="container">
             <div class="navbar">
-                <div class="logo-img">
-                    <img src="logo.jpg" alt="Prime Creative Logo" style="height:52px; width:auto; max-height:52px; object-fit:contain;" onerror="this.parentElement.innerHTML='<div class=\'logo-fallback\'>PRIME <span>CREATIVE</span></div>'">
+                <div class="logo-wrapper">
+                    <div class="logo-img">
+                        <img src="https://i.imgur.com/61Mj8fn.jpeg" alt="Prime Creative Logo" onerror="this.parentElement.innerHTML='<div class=\'logo-fallback\'>PRIME</div>'">
+                    </div>
+                    <span class="logo-text">Prime Creative</span>
                 </div>
                 <button class="menu-toggle" id="menuToggle" aria-label="Menu"><i class="fas fa-bars"></i></button>
                 <div class="nav-links" id="navLinks">
                     <a href="#home" data-translate="nav_home">Home</a>
-                    <a href="#services" data-translate="nav_services">Services</a>
-                    <a href="#work" data-translate="nav_portfolio">Portfolio</a>
-                    <a href="#contact" data-translate="nav_contact">Contact</a>
-                    <a href="#contact" class="btn-outline" data-translate="nav_talk">Let's talk</a>
-                    <div class="lang-selector" id="languagePicker">
-                        <button class="lang-btn active" data-lang="en">EN</button>
-                        <button class="lang-btn" data-lang="fr">FR</button>
-                        <button class="lang-btn" data-lang="ht">KREYÒL</button>
+                    <div class="nav-item-with-sub" id="navServices">
+                        <a href="#" data-translate="nav_services">
+                            Services <span class="arrow"><i class="fas fa-chevron-down"></i></span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li><a href="#services" data-translate="service1_title">Graphic Design</a></li>
+                            <li><a href="#services" data-translate="service2_title">3D & Motion</a></li>
+                            <li><a href="#services" data-translate="service3_title">Web & App Dev</a></li>
+                            <li><a href="#services" data-translate="service4_title">Digital Marketing</a></li>
+                        </ul>
                     </div>
-                    <button id="darkModeToggle" class="theme-toggle"><i class="fas fa-moon"></i> <span>Dark</span></button>
+                    <div class="nav-item-with-sub" id="navPortfolio">
+                        <a href="#" data-translate="nav_portfolio">
+                            Portfolio <span class="arrow"><i class="fas fa-chevron-down"></i></span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li><a href="#work" data-translate="gallery1">Brand Identity</a></li>
+                            <li><a href="#work" data-translate="gallery2">3D Furniture</a></li>
+                            <li><a href="#work" data-translate="gallery3">Web Studio</a></li>
+                            <li><a href="#work" data-translate="gallery4">Fintech App</a></li>
+                            <li><a href="#work" data-translate="gallery5">Social Campaign</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-item-with-sub" id="navContact">
+                        <a href="#" data-translate="nav_contact">
+                            Contact <span class="arrow"><i class="fas fa-chevron-down"></i></span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li><a href="#contact" data-translate="contact_email">Email</a></li>
+                            <li><a href="#contact" data-translate="contact_phone">Phone</a></li>
+                            <li><a href="#contact" data-translate="contact_address">Address</a></li>
+                        </ul>
+                    </div>
+                    <a href="#contact" class="btn-outline" data-translate="nav_talk">Let's talk</a>
+                    
+                    <!-- Bottom section for mobile: language + dark mode -->
+                    <div class="nav-bottom">
+                        <div class="lang-selector" id="languagePicker">
+                            <button class="lang-btn active" data-lang="en">EN</button>
+                            <button class="lang-btn" data-lang="fr">FR</button>
+                            <button class="lang-btn" data-lang="ht">KREYÒL</button>
+                        </div>
+                        <button id="darkModeToggle" class="theme-toggle"><i class="fas fa-moon"></i> <span>Dark</span></button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -538,8 +489,10 @@
             <div class="container">
                 <div class="hero-grid">
                     <div class="hero-content">
-                        <div class="hero-badge"><i class="fas fa-bolt"></i> <span data-translate="hero_badge">design · 3D · dev</span></div>
                         <h1><span data-translate="hero_title1">Where</span> <span class="hero-highlight" data-translate="hero_title2">vision</span> <span data-translate="hero_title3">meets<br>execution</span></h1>
+                        <div class="hero-sub">
+                            <span class="typing-text" id="typingText"></span><span class="cursor"></span>
+                        </div>
                         <p data-translate="hero_desc">Graphic design, 3D artistry, websites & apps — we craft digital experiences that resonate. Your brand, elevated.</p>
                         <div class="hero-buttons">
                             <a href="#contact" class="btn-primary" data-translate="hero_btn1">Start a project</a>
@@ -590,23 +543,19 @@
             </div>
         </section>
 
-        <!-- ===== FULLY FUNCTIONAL PORTFOLIO SLIDESHOW ===== -->
+        <!-- Portfolio Slideshow -->
         <section class="section fade-up" style="padding-bottom: 40px;">
             <div class="container">
                 <div class="slideshow-wrapper">
                     <div class="portfolio-header">
                         <h2 class="main-title" data-translate="portfolio_main_title">Our <span>Portfolio</span></h2>
                     </div>
-
                     <div class="slide-viewport" id="slideViewport">
                         <div id="slideContainer"></div>
                     </div>
-
-                    <!-- Progress Bar -->
                     <div class="progress-bar-container">
                         <div class="progress-bar" id="progressBar"></div>
                     </div>
-
                     <div class="controls-bar">
                         <div class="dots" id="dotsContainer"></div>
                         <div class="nav-buttons">
@@ -616,13 +565,9 @@
                             <button class="fullscreen-btn" id="fullscreenBtn" aria-label="Fullscreen">⛶</button>
                         </div>
                     </div>
-
-                    <!-- Thumbnail Strip -->
                     <div class="thumbnail-strip-wrapper">
                         <div class="thumbnail-strip" id="thumbnailStrip"></div>
                     </div>
-
-                    <!-- Category Filters (translated) -->
                     <div class="portfolio-categories" id="portfolioCategories">
                         <div class="category-item" id="cat-design">
                             <span class="cat-main" data-translate="portfolio_cat1_main">Design &</span>
@@ -647,15 +592,15 @@
         <section class="section fade-up" style="padding-top:0;">
             <div class="container">
                 <div class="stats-grid" id="statsContainer">
-                    <div class="stat-item"><div class="stat-number" data-target="87">0</div><div class="stat-label" data-translate="stat_projects">Projects Completed</div></div>
-                    <div class="stat-item"><div class="stat-number" data-target="56">0</div><div class="stat-label" data-translate="stat_clients">Happy Clients</div></div>
+                    <div class="stat-item"><div class="stat-number" data-target="30" data-plus="true">0</div><div class="stat-label" data-translate="stat_projects">Projects Completed</div></div>
+                    <div class="stat-item"><div class="stat-number" data-target="40" data-plus="true">0</div><div class="stat-label" data-translate="stat_clients">Happy Clients</div></div>
                     <div class="stat-item"><div class="stat-number" data-target="6">0</div><div class="stat-label" data-translate="stat_years">Years Excellence</div></div>
                     <div class="stat-item"><div class="stat-number" data-target="10">0</div><div class="stat-label" data-translate="stat_team">Team Members</div></div>
                 </div>
             </div>
         </section>
 
-        <!-- Portfolio (existing mini-gallery) -->
+        <!-- Portfolio (mini-gallery) -->
         <section id="work" class="section fade-up" style="padding-top:0;">
             <div class="container">
                 <div class="portfolio-showcase">
@@ -679,9 +624,9 @@
                 <h2 class="section-title" data-translate="testimonial_title">What clients say</h2>
                 <p class="section-sub" data-translate="testimonial_sub">Trusted by creators & enterprises worldwide</p>
                 <div class="testimonials-grid">
-                    <div class="testimonial-card"><i class="fas fa-quote-left" style="color:var(--accent); font-size:1.8rem; margin-bottom:12px; display:block;"></i><p class="testimonial-text" data-translate="testimonial1">"Prime Creative redesigned our entire brand identity and built a high‑performance e‑commerce site. Sales increased by 140% in 3 months."</p><div class="testimonial-author" data-translate="author1">— Sophia Chen</div><div class="testimonial-role" data-translate="role1">Creative Director, Lumina</div></div>
-                    <div class="testimonial-card"><i class="fas fa-quote-left" style="color:var(--accent); font-size:1.8rem; margin-bottom:12px; display:block;"></i><p class="testimonial-text" data-translate="testimonial2">"The 3D product visualizations blew us away. The team's attention to detail and speed is unmatched. Highly recommend for any immersive work."</p><div class="testimonial-author" data-translate="author2">— Marcus Velez</div><div class="testimonial-role" data-translate="role2">Founder, ModaStudio</div></div>
-                    <div class="testimonial-card"><i class="fas fa-quote-left" style="color:var(--accent); font-size:1.8rem; margin-bottom:12px; display:block;"></i><p class="testimonial-text" data-translate="testimonial3">"From concept to launch, they delivered a seamless fintech app. Users love the UI/UX. Professional and creative — 10/10."</p><div class="testimonial-author" data-translate="author3">— Aisha Khan</div><div class="testimonial-role" data-translate="role3">CTO, NimbusPay</div></div>
+                    <div class="testimonial-card"><i class="fas fa-quote-left" style="color:var(--accent); font-size:1.8rem; margin-bottom:12px; display:block;"></i><p class="testimonial-text" data-translate="testimonial1">"Prime Creative redesigned our entire brand identity and built a high‑performance e‑commerce site. Sales increased by 140% in 3 months."</p><div class="testimonial-author" data-translate="author1">— Sophia C.</div><div class="testimonial-role" data-translate="role1">Creative Director, Lumina</div></div>
+                    <div class="testimonial-card"><i class="fas fa-quote-left" style="color:var(--accent); font-size:1.8rem; margin-bottom:12px; display:block;"></i><p class="testimonial-text" data-translate="testimonial2">"The 3D product visualizations blew us away. The team's attention to detail and speed is unmatched. Highly recommend for any immersive work."</p><div class="testimonial-author" data-translate="author2">— Marcus V.</div><div class="testimonial-role" data-translate="role2">Founder, ModaStudio</div></div>
+                    <div class="testimonial-card"><i class="fas fa-quote-left" style="color:var(--accent); font-size:1.8rem; margin-bottom:12px; display:block;"></i><p class="testimonial-text" data-translate="testimonial3">"From concept to launch, they delivered a seamless fintech app. Users love the UI/UX. Professional and creative — 10/10."</p><div class="testimonial-author" data-translate="author3">— Aisha K.</div><div class="testimonial-role" data-translate="role3">CTO, NimbusPay</div></div>
                 </div>
             </div>
         </section>
@@ -790,7 +735,7 @@
         </div>
     </div>
 
-    <!-- Lightbox (for slideshow) -->
+    <!-- Lightbox -->
     <div class="lightbox-overlay" id="lightboxOverlay">
         <div class="lightbox-content">
             <button class="lightbox-close" id="lightboxClose">✕</button>
@@ -813,737 +758,782 @@
     </div>
 
     <script>
+        // ─── HERO TYPING ANIMATION ───
         (function() {
-            // ── Translations (main page) ──
-            const translations = {
-                en: {
-                    nav_home: "Home", nav_services: "Services", nav_portfolio: "Portfolio", nav_contact: "Contact", nav_talk: "Let's talk",
-                    hero_badge: "design · 3D · dev", hero_title1: "Where", hero_title2: "vision", hero_title3: "meets<br>execution",
-                    hero_desc: "Graphic design, 3D artistry, websites & apps — we craft digital experiences that resonate. Your brand, elevated.",
-                    hero_btn1: "Start a project", hero_btn2: "Explore services",
-                    graphic_title: "Graphic", graphic_sub: "Identity, print, digital",
-                    "3d_title": "3D", "3d_sub": "Modeling & rendering",
-                    webapp_title: "Web & App", webapp_sub: "Full-stack dev",
-                    marketing_title: "Marketing", marketing_sub: "Digital strategy",
-                    services_title: "What we deliver", services_sub: "Creative solutions that blend aesthetics, technology, and performance",
-                    service1_title: "Graphic Design", service1_desc: "Logos, brand identity, packaging, social media visuals, and print materials that stand out. We create cohesive visual languages.",
-                    service2_title: "3D & Motion", service2_desc: "High-end 3D modeling, product visualization, architectural rendering, and animation. Bring concepts to life with depth & realism.",
-                    service3_title: "Web & App Dev", service3_desc: "Custom websites, e‑commerce, CMS, full‑stack, and cross-platform apps (iOS, Android, Flutter, React Native). From MVP to polished product.",
-                    service4_title: "Digital Marketing", service4_desc: "SEO, social media management, content strategy, paid ads, and analytics. Grow your brand's online presence and convert leads into customers.",
-                    explore: "Explore →",
-                    stat_projects: "Projects Completed", stat_clients: "Happy Clients", stat_years: "Years Excellence", stat_team: "Team Members",
-                    portfolio_title: "Creative showcase", portfolio_sub: "A glimpse of recent magic — design, 3D & digital craft",
-                    gallery1: "Brand Identity", gallery1_sub: "Visual identity system",
-                    gallery2: "3D Furniture", gallery2_sub: "Product viz",
-                    gallery3: "Web Studio", gallery3_sub: "Fashion e‑commerce",
-                    gallery4: "Fintech App", gallery4_sub: "UI/UX + dev",
-                    gallery5: "Social Campaign", gallery5_sub: "Digital marketing",
-                    portfolio_cta: "→ Request full portfolio",
-                    testimonial_title: "What clients say", testimonial_sub: "Trusted by creators & enterprises worldwide",
-                    testimonial1: "\"Prime Creative redesigned our entire brand identity and built a high‑performance e‑commerce site. Sales increased by 140% in 3 months.\"",
-                    author1: "— Sophia Chen", role1: "Creative Director, Lumina",
-                    testimonial2: "\"The 3D product visualizations blew us away. The team's attention to detail and speed is unmatched. Highly recommend for any immersive work.\"",
-                    author2: "— Marcus Velez", role2: "Founder, ModaStudio",
-                    testimonial3: "\"From concept to launch, they delivered a seamless fintech app. Users love the UI/UX. Professional and creative — 10/10.\"",
-                    author3: "— Aisha Khan", role3: "CTO, NimbusPay",
-                    contact_title1: "Let's create something", contact_title2: "remarkable",
-                    contact_desc: "Got a project in mind? Whether it's a complete brand overhaul, a 3D visual, or a complex web/app — let's talk.",
-                    contact_address: "Montagne Noire, PV - Remote",
-                    contact_phone: "+(509) 3774-3116",
-                    contact_email: "hello@myprimecreative.com",
-                    form_name: "Full name", form_email: "Email address", form_message: "Tell us about your vision...", form_submit: "Send inquiry →",
-                    service_opt1: "Graphic Design", service_opt2: "3D & Motion", service_opt3: "Web & App Development", service_opt4: "Digital Marketing", service_opt5: "Other / full package",
-                    footer_desc: "Design, 3D, code — we craft digital excellence for forward-thinking brands.",
-                    footer_explore: "Explore", footer_services: "Services", footer_portfolio: "Portfolio", footer_careers: "Careers",
-                    footer_legal: "Legal", footer_privacy: "Privacy policy", footer_terms: "Terms of service",
-                    copyright: "© 2025 PRIME CREATIVE — All works and brands belong to their respective owners. Crafted with",
-                    copyright_end: "for bold ideas.",
-                    // Portfolio main title
-                    portfolio_main_title: "Our <span>Portfolio</span>",
-                    // Portfolio category translations
-                    portfolio_cat1_main: "Design &",
-                    portfolio_cat1_sub: "Marketing",
-                    portfolio_cat2_main: "Website",
-                    portfolio_cat2_sub: "Creation",
-                    portfolio_cat3_main: "App",
-                    portfolio_cat3_sub: "Creation",
-                    // Portfolio slides translations (titles, categories, descriptions)
-                    portfolio_slide1_title: "Chic Attire",
-                    portfolio_slide1_category: "Logo · Design · Flyers",
-                    portfolio_slide1_desc: "We specialize in Logo Design, Flyers, and Digital Marketing solutions to elevate your brand.",
-                    portfolio_slide2_title: "Chic Attire",
-                    portfolio_slide2_category: "Logo · Design · Flyers",
-                    portfolio_slide2_desc: "We specialize in Logo Design, Flyers, and Digital Marketing solutions to elevate your brand.",
-                    portfolio_slide3_title: "Jewelry by Genevieve",
-                    portfolio_slide3_category: "Jewelry · Design · Flyers",
-                    portfolio_slide3_desc: "We specialize in Logo Design, Flyers, and Digital Marketing solutions to elevate your brand.",
-                    portfolio_slide4_title: "Chic Attire",
-                    portfolio_slide4_category: "Website · E-commerce",
-                    portfolio_slide4_desc: "E-commerce website showcasing jewelry collections. View live demo to explore the full experience.",
-                    portfolio_slide5_title: "BIWI",
-                    portfolio_slide5_category: "Website · E-commerce",
-                    portfolio_slide5_desc: "BIWI e-commerce platform – explore our curated collection online.",
-                    portfolio_slide6_title: "Task",
-                    portfolio_slide6_category: "App · Tasks",
-                    portfolio_slide6_desc: "Task management app – organize your daily tasks efficiently with a clean and intuitive interface.",
-                    portfolio_slide7_title: "Booking",
-                    portfolio_slide7_category: "App · Booking",
-                    portfolio_slide7_desc: "Booking app – easily book appointments, services, and reservations with a seamless experience."
-                },
-                fr: {
-                    nav_home: "Accueil", nav_services: "Services", nav_portfolio: "Portfolio", nav_contact: "Contact", nav_talk: "Discutons",
-                    hero_badge: "design · 3D · dev", hero_title1: "Là où la", hero_title2: "vision", hero_title3: "rencontre<br>l'exécution",
-                    hero_desc: "Design graphique, art 3D, sites web et applications — nous créons des expériences numériques qui résonnent. Votre marque, élevée.",
-                    hero_btn1: "Commencer un projet", hero_btn2: "Explorer les services",
-                    graphic_title: "Graphique", graphic_sub: "Identité, print, digital",
-                    "3d_title": "3D", "3d_sub": "Modélisation & rendu",
-                    webapp_title: "Web & App", webapp_sub: "Dev full-stack",
-                    marketing_title: "Marketing", marketing_sub: "Stratégie digitale",
-                    services_title: "Ce que nous livrons", services_sub: "Des solutions créatives mêlant esthétique, technologie et performance",
-                    service1_title: "Design Graphique", service1_desc: "Logos, identité de marque, packaging, visuels réseaux sociaux et supports imprimés qui se démarquent. Nous créons des langages visuels cohérents.",
-                    service2_title: "3D & Animation", service2_desc: "Modélisation 3D haut de gamme, visualisation de produits, rendu architectural et animation. Donnez vie à vos concepts avec profondeur et réalisme.",
-                    service3_title: "Dev Web & App", service3_desc: "Sites web sur mesure, e‑commerce, CMS, full-stack et applications cross-platform (iOS, Android, Flutter, React Native). Du MVP au produit abouti.",
-                    service4_title: "Marketing Digital", service4_desc: "SEO, gestion des réseaux sociaux, stratégie de contenu, publicités payantes et analytique. Développez la présence en ligne de votre marque et convertissez les prospects en clients.",
-                    explore: "Explorer →",
-                    stat_projects: "Projets réalisés", stat_clients: "Clients satisfaits", stat_years: "Années d'excellence", stat_team: "Membres de l'équipe",
-                    portfolio_title: "Vitrine créative", portfolio_sub: "Un aperçu de notre magie récente — design, 3D & artisanat numérique",
-                    gallery1: "Identité de marque", gallery1_sub: "Système d'identité",
-                    gallery2: "Mobilier 3D", gallery2_sub: "Visualisation produit",
-                    gallery3: "Studio Web", gallery3_sub: "E‑commerce mode",
-                    gallery4: "App Fintech", gallery4_sub: "UI/UX + dev",
-                    gallery5: "Campagne Sociale", gallery5_sub: "Marketing digital",
-                    portfolio_cta: "→ Demander le portfolio complet",
-                    testimonial_title: "Ce que disent nos clients", testimonial_sub: "Approuvé par les créateurs et entreprises du monde entier",
-                    testimonial1: "« Prime Creative a repensé notre identité de marque et construit un site e‑commerce haute performance. Les ventes ont augmenté de 140% en 3 mois. »",
-                    author1: "— Sophia Chen", role1: "Directrice créative, Lumina",
-                    testimonial2: "« Les visualisations 3D nous ont époustouflés. L'attention aux détails et la rapidité de l'équipe sont inégalées. Je recommande vivement. »",
-                    author2: "— Marcus Velez", role2: "Fondateur, ModaStudio",
-                    testimonial3: "« Du concept au lancement, ils ont livré une application fintech fluide. Les utilisateurs adorent l'UI/UX. Professionnel et créatif — 10/10. »",
-                    author3: "— Aisha Khan", role3: "CTO, NimbusPay",
-                    contact_title1: "Créons quelque chose de", contact_title2: "remarquable",
-                    contact_desc: "Un projet en tête ? Refonte complète de marque, visuel 3D ou application/web complexe — parlons-en.",
-                    contact_address: "Montagne Noire, PV - Remote",
-                    contact_phone: "+(509) 3774-3116",
-                    contact_email: "hello@myprimecreative.com",
-                    form_name: "Nom complet", form_email: "Adresse e-mail", form_message: "Parlez-nous de votre vision...", form_submit: "Envoyer la demande →",
-                    service_opt1: "Design Graphique", service_opt2: "3D & Animation", service_opt3: "Développement Web & App", service_opt4: "Marketing Digital", service_opt5: "Autre / pack complet",
-                    footer_desc: "Design, 3D, code — nous créons l'excellence numérique pour les marques tournées vers l'avenir.",
-                    footer_explore: "Explorer", footer_services: "Services", footer_portfolio: "Portfolio", footer_careers: "Carrières",
-                    footer_legal: "Juridique", footer_privacy: "Confidentialité", footer_terms: "Conditions d'utilisation",
-                    copyright: "© 2025 PRIME CREATIVE — Toutes les œuvres et marques appartiennent à leurs propriétaires respectifs. Fabriqué avec",
-                    copyright_end: "pour les idées audacieuses.",
-                    portfolio_main_title: "Notre <span>Portfolio</span>",
-                    portfolio_cat1_main: "Design &",
-                    portfolio_cat1_sub: "Marketing",
-                    portfolio_cat2_main: "Site web",
-                    portfolio_cat2_sub: "Création",
-                    portfolio_cat3_main: "App",
-                    portfolio_cat3_sub: "Création",
-                    portfolio_slide1_title: "Chic Attire",
-                    portfolio_slide1_category: "Logo · Design · Flyers",
-                    portfolio_slide1_desc: "Nous sommes spécialisés dans la création de logos, flyers et solutions de marketing digital pour valoriser votre marque.",
-                    portfolio_slide2_title: "Chic Attire",
-                    portfolio_slide2_category: "Logo · Design · Flyers",
-                    portfolio_slide2_desc: "Nous sommes spécialisés dans la création de logos, flyers et solutions de marketing digital pour valoriser votre marque.",
-                    portfolio_slide3_title: "Jewelry by Genevieve",
-                    portfolio_slide3_category: "Bijoux · Design · Flyers",
-                    portfolio_slide3_desc: "Nous sommes spécialisés dans la création de logos, flyers et solutions de marketing digital pour valoriser votre marque.",
-                    portfolio_slide4_title: "Chic Attire",
-                    portfolio_slide4_category: "Site web · E-commerce",
-                    portfolio_slide4_desc: "Site e-commerce présentant des collections de bijoux. Visionnez la démo en direct pour découvrir l'expérience complète.",
-                    portfolio_slide5_title: "BIWI",
-                    portfolio_slide5_category: "Site web · E-commerce",
-                    portfolio_slide5_desc: "Plateforme e-commerce BIWI – explorez notre collection en ligne.",
-                    portfolio_slide6_title: "Task",
-                    portfolio_slide6_category: "App · Tâches",
-                    portfolio_slide6_desc: "Application de gestion de tâches – organisez vos tâches quotidiennes efficacement avec une interface propre et intuitive.",
-                    portfolio_slide7_title: "Booking",
-                    portfolio_slide7_category: "App · Réservation",
-                    portfolio_slide7_desc: "Application de réservation – réservez facilement des rendez-vous, services et réservations avec une expérience fluide."
-                },
-                ht: {
-                    nav_home: "Akèy", nav_services: "Sèvis", nav_portfolio: "Pòtfolyo", nav_contact: "Kontak", nav_talk: "Ann pale",
-                    hero_badge: "design · 3D · dev", hero_title1: "Kote", hero_title2: "vizyon", hero_title3: "rankontre<br>egzekisyon",
-                    hero_desc: "Desen grafik, atis 3D, sit wèb ak aplikasyon — nou kreye eksperyans dijital ki rezone. Mak ou, elve.",
-                    hero_btn1: "Kòmanse yon pwojè", hero_btn2: "Eksplore sèvis yo",
-                    graphic_title: "Grafik", graphic_sub: "Idantite, enprime, dijital",
-                    "3d_title": "3D", "3d_sub": "Modèl ak rann",
-                    webapp_title: "Wèb & App", webapp_sub: "Dev full-stack",
-                    marketing_title: "Maketing", marketing_sub: "Estrateji dijital",
-                    services_title: "Sa nou livre", services_sub: "Solisyon kreyatif ki melanje estetik, teknoloji ak pèfòmans",
-                    service1_title: "Desen Grafik", service1_desc: "Logo, idantite mak, anbalaj, vizyèl rezo sosyal ak materyèl enprime ki kanpe deyò. Nou kreye lang vizyèl koyeran.",
-                    service2_title: "3D & Animasyon", service2_desc: "Modèl 3D wo nivo, vizyalizasyon pwodwi, rann achitekti ak animasyon. Pote konsèp yo nan lavi ak pwofondè ak reyalis.",
-                    service3_title: "Devlopman Wèb & App", service3_desc: "Sit wèb pèsonalize, e-commerce, CMS, full-stack, ak aplikasyon cross-platform (iOS, Android, Flutter, React Native). Soti nan MVP rive nan pwodwi poli.",
-                    service4_title: "Maketing Digital", service4_desc: "SEO, jesyon rezo sosyal, estrateji kontni, piblisite peye, ak analiz. Ogmante prezans ou sou entènèt epi konvèti leads an kliyan.",
-                    explore: "Eksplore →",
-                    stat_projects: "Pwojè konplete", stat_clients: "Kliyan kontan", stat_years: "Ane ekselans", stat_team: "Manm ekip",
-                    portfolio_title: "Vitrin kreyatif", portfolio_sub: "Yon apèsi sou dènye majik nou — desen, 3D & atizana dijital",
-                    gallery1: "Idantite Mak", gallery1_sub: "Sistèm idantite",
-                    gallery2: "Mèb 3D", gallery2_sub: "Vizyalizasyon pwodwi",
-                    gallery3: "Studio Wèb", gallery3_sub: "E-commerce mod",
-                    gallery4: "App Finansyè", gallery4_sub: "UI/UX + dev",
-                    gallery5: "Kanpay Sosyal", gallery5_sub: "Maketing dijital",
-                    portfolio_cta: "→ Mandye pòtfolyo konplè",
-                    testimonial_title: "Sa kliyan yo di", testimonial_sub: "Sèvi ak enèji pa kreyatè ak antrepriz atravè lemond",
-                    testimonial1: "« Prime Creative te repanse tout idantite mak nou epi li te bati yon sit e-commerce wo pèfòmans. Vant yo te ogmante pa 140% nan 3 mwa. »",
-                    author1: "— Sophia Chen", role1: "Direktris Kreyatif, Lumina",
-                    testimonial2: "« Vizyalizasyon 3D yo te sezi nou. Atansyon ekip la sou detay ak vitès se san parèy. Mwen rekòmande anpil pou nenpòt travay immersive. »",
-                    author2: "— Marcus Velez", role2: "Fondatè, ModaStudio",
-                    testimonial3: "« Soti nan konsèp rive nan lansman, yo te livre yon aplikasyon finansyè san pwoblèm. Itilizatè yo renmen UI/UX la. Pwofesyonèl ak kreyatif — 10/10. »",
-                    author3: "— Aisha Khan", role3: "CTO, NimbusPay",
-                    contact_title1: "Ann kreye yon bagay", contact_title2: "remakab",
-                    contact_desc: "Ou gen yon pwojè nan tèt ou? Kit se yon refonte konplè mak, yon vizyèl 3D, oswa yon aplikasyon/sit konplèks — ann pale.",
-                    contact_address: "Montagne Noire, PV - Remote",
-                    contact_phone: "+(509) 3774-3116",
-                    contact_email: "hello@myprimecreative.com",
-                    form_name: "Non konplè", form_email: "Adrès imèl", form_message: "Pale nou de vizyon ou...", form_submit: "Voye demann lan →",
-                    service_opt1: "Desen Grafik", service_opt2: "3D & Animasyon", service_opt3: "Devlopman Wèb & App", service_opt4: "Maketing Digital", service_opt5: "Lòt / pakè konplè",
-                    footer_desc: "Desen, 3D, kòd — nou kreye ekselans dijital pou mak ki gade pou pi devan.",
-                    footer_explore: "Eksplore", footer_services: "Sèvis", footer_portfolio: "Pòtfolyo", footer_careers: "Karyè",
-                    footer_legal: "Legal", footer_privacy: "Konfidansyalite", footer_terms: "Kondisyon itilizasyon",
-                    copyright: "© 2025 PRIME CREATIVE — Tout travay ak mak apatni a pwopriyetè respektif yo. Fabrike ak",
-                    copyright_end: "pou lide odasye.",
-                    portfolio_main_title: "Pòtfolyo <span>nou</span>",
-                    portfolio_cat1_main: "Design &",
-                    portfolio_cat1_sub: "Maketing",
-                    portfolio_cat2_main: "Sit wèb",
-                    portfolio_cat2_sub: "Kreyasyon",
-                    portfolio_cat3_main: "App",
-                    portfolio_cat3_sub: "Kreyasyon",
-                    portfolio_slide1_title: "Chic Attire",
-                    portfolio_slide1_category: "Logo · Design · Flyers",
-                    portfolio_slide1_desc: "Nou espesyalize nan Kreyasyon Logo, Flyers, ak Solisyon Maketing Digital pou elve mak ou.",
-                    portfolio_slide2_title: "Chic Attire",
-                    portfolio_slide2_category: "Logo · Design · Flyers",
-                    portfolio_slide2_desc: "Nou espesyalize nan Kreyasyon Logo, Flyers, ak Solisyon Maketing Digital pou elve mak ou.",
-                    portfolio_slide3_title: "Jewelry by Genevieve",
-                    portfolio_slide3_category: "Bijou · Design · Flyers",
-                    portfolio_slide3_desc: "Nou espesyalize nan Kreyasyon Logo, Flyers, ak Solisyon Maketing Digital pou elve mak ou.",
-                    portfolio_slide4_title: "Chic Attire",
-                    portfolio_slide4_category: "Sit wèb · E-commerce",
-                    portfolio_slide4_desc: "Sit e-commerce ki prezante koleksyon bijou. Gade demo an dirèk pou eksplore eksperyans konplè a.",
-                    portfolio_slide5_title: "BIWI",
-                    portfolio_slide5_category: "Sit wèb · E-commerce",
-                    portfolio_slide5_desc: "Platfòm e-commerce BIWI – eksplore koleksyon nou an liy.",
-                    portfolio_slide6_title: "Task",
-                    portfolio_slide6_category: "App · Tach",
-                    portfolio_slide6_desc: "Aplikasyon jesyon tach – òganize tach chak jou ou avèk efikasite ak yon koòdone pwòp ak entwitif.",
-                    portfolio_slide7_title: "Booking",
-                    portfolio_slide7_category: "App · Rezèvasyon",
-                    portfolio_slide7_desc: "Aplikasyon rezèvasyon – rezève fasilman randevou, sèvis ak rezèvasyon ak yon eksperyans san pwoblèm."
-                }
-            };
+            const texts = [
+                'Graphic design · 3D · dev',
+                'Websites & apps',
+                'Digital experiences that resonate',
+                'Your brand, elevated'
+            ];
+            let textIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+            const typingElement = document.getElementById('typingText');
+            let typeTimer;
 
-            // ── Expose translations globally for the slideshow script ──
-            window.translations = translations;
-
-            // ── Chat translations ──
-            const chatTranslations = {
-                en: {
-                    greeting: "👋 Hi there! I'm Prime AI — your creative assistant. Ask me about our services, pricing, portfolio, or anything else!",
-                    quickReplies: [
-                        { text: "📐 Services", value: "What services do you offer?" },
-                        { text: "💰 Pricing", value: "How much does a project cost?" },
-                        { text: "🎨 Portfolio", value: "Can I see your portfolio?" },
-                        { text: "🚀 Start", value: "How do I start a project?" },
-                        { text: "💬 WhatsApp", value: "I want to speak with a real person" }
-                    ],
-                    headerTitle: "Prime AI Assistant",
-                    headerStatus: "Online · ready to help",
-                    placeholder: "Type your message…",
-                    responses: {
-                        services: "We offer 4 core services:\n• 🎨 Graphic Design — branding, print, social visuals\n• 🧊 3D & Motion — modeling, rendering, animation\n• 💻 Web & App Dev — full-stack, e‑commerce, cross-platform apps\n• 📈 Digital Marketing — SEO, social, ads, strategy\nWhich one interests you most?",
-                        graphic: "🎨 Our graphic design team crafts stunning logos, brand identities, packaging, and social media visuals. We create cohesive visual languages that make brands unforgettable. Want to see some examples?",
-                        threeD: "🧊 Our 3D & Motion studio delivers high-end modeling, product visualization, architectural rendering, and animation. We bring concepts to life with depth and realism. Got a project in mind?",
-                        web: "💻 We build custom websites, e‑commerce platforms, CMS solutions, full‑stack apps, and cross-platform mobile apps (iOS, Android, Flutter, React Native). From MVP to polished product — we've got you covered!",
-                        marketing: "📈 Our digital marketing team boosts your online presence with SEO, social media management, content strategy, paid ads, and analytics. We turn leads into loyal customers. Ready to grow?",
-                        pricing: "💰 Pricing varies by scope:\n• Logo design: starts at $200\n• Full brand package (logo + business card + badge + etc.): $500\n• Website/App: custom, starting from $1k up to $50k+\n• Digital Marketing: starts at $200/month\nWant a custom quote? Tell me more about your project!",
-                        portfolio: "🎨 You can check out our portfolio section on this page! We've done brand identities, 3D furniture renders, fashion e‑commerce sites, fintech apps, and social campaigns. I can also share more tailored examples — what type of work are you looking for?",
-                        start: "🚀 Starting a project is easy! 1️⃣ Reach out via the contact form or email us at hello@myprimecreative.com. 2️⃣ We'll schedule a discovery call to understand your vision. 3️⃣ We'll send a proposal with timeline and pricing. 4️⃣ Once approved, we bring your idea to life! Ready to take the first step?",
-                        team: "🌟 Prime Creative is a team of designers, 3D artists, developers, and marketing strategists. We've been crafting digital excellence for 6+ years, serving clients from startups to global brands. We're passionate about turning bold ideas into reality!",
-                        contact: "📬 You can reach us at hello@myprimecreative.com or call +(509) 3774-3116. We're based in Montagne Noire, PV - Remote, but we work remotely with clients worldwide. Use the contact form on this page — we'll reply within 24h!",
-                        thank: "You're welcome! 🙌 I'm here whenever you need me. Anything else I can help with?",
-                        bye: "Goodbye for now! 👋 Feel free to come back anytime if you have more questions. Have a great day!",
-                        whatsapp: "📱 You can speak with a real customer support agent directly on WhatsApp. Click this link to start a chat: https://wa.me/message/TWWSM72QHJJ4B1",
-                        default: "🤔 Hmm, I'm not sure I understand. Could you rephrase? I can help with services, pricing, portfolio, or starting a project. Or just say 'hello' to chat!"
+            function type() {
+                const currentText = texts[textIndex];
+                if (isDeleting) {
+                    charIndex--;
+                    if (charIndex < 0) {
+                        isDeleting = false;
+                        textIndex = (textIndex + 1) % texts.length;
+                        charIndex = 0;
+                        typeTimer = setTimeout(type, 400);
+                        return;
                     }
-                },
-                fr: {
-                    greeting: "👋 Bonjour ! Je suis Prime AI — votre assistant créatif. Demandez-moi tout sur nos services, nos prix, notre portfolio ou autre chose !",
-                    quickReplies: [
-                        { text: "📐 Services", value: "Quels services proposez-vous ?" },
-                        { text: "💰 Tarifs", value: "Combien coûte un projet ?" },
-                        { text: "🎨 Portfolio", value: "Puis-je voir votre portfolio ?" },
-                        { text: "🚀 Démarrer", value: "Comment démarrer un projet ?" },
-                        { text: "💬 WhatsApp", value: "Je veux parler à une vraie personne" }
-                    ],
-                    headerTitle: "Assistant Prime AI",
-                    headerStatus: "En ligne · prêt à aider",
-                    placeholder: "Écrivez votre message…",
-                    responses: {
-                        services: "Nous offrons 4 services principaux :\n• 🎨 Design Graphique — branding, print, visuels sociaux\n• 🧊 3D & Animation — modélisation, rendu, animation\n• 💻 Dev Web & App — full-stack, e‑commerce, apps cross-platform\n• 📈 Marketing Digital — SEO, réseaux sociaux, publicité, stratégie\nLequel vous intéresse le plus ?",
-                        graphic: "🎨 Notre équipe de design graphique crée des logos, identités de marque, emballages et visuels sociaux époustouflants. Nous créons des langages visuels cohérents qui rendent les marques inoubliables. Vous voulez voir des exemples ?",
-                        threeD: "🧊 Notre studio 3D & Animation propose de la modélisation haut de gamme, visualisation de produits, rendu architectural et animation. Nous donnons vie aux concepts avec profondeur et réalisme. Vous avez un projet en tête ?",
-                        web: "💻 Nous construisons des sites web sur mesure, des plateformes e‑commerce, des solutions CMS, des applications full‑stack et des applications mobiles cross-platform (iOS, Android, Flutter, React Native). Du MVP au produit fini — nous vous couvrons !",
-                        marketing: "📈 Notre équipe de marketing digital booste votre présence en ligne avec le SEO, la gestion des réseaux sociaux, la stratégie de contenu, les publicités payantes et l'analyse. Nous transformons les prospects en clients fidèles. Prêt à grandir ?",
-                        pricing: "💰 Les tarifs varient selon le périmètre :\n• Création de logo : à partir de 200 $\n• Pack complet (logo + carte de visite + badge + etc.) : 500 $\n• Site web/App : sur mesure, de 1 000 $ à 50 000 $+\n• Marketing Digital : à partir de 200 $/mois\nVous voulez un devis personnalisé ? Parlez-moi de votre projet !",
-                        portfolio: "🎨 Vous pouvez consulter notre section portfolio sur cette page ! Nous avons réalisé des identités de marque, des rendus 3D de meubles, des sites e‑commerce de mode, des applications fintech et des campagnes sociales. Je peux aussi vous montrer des exemples plus ciblés — quel type de travail cherchez-vous ?",
-                        start: "🚀 Démarrer un projet est facile ! 1️⃣ Contactez-nous via le formulaire ou par email à hello@myprimecreative.com. 2️⃣ Nous planifions un appel de découverte pour comprendre votre vision. 3️⃣ Nous vous envoyons une proposition avec calendrier et tarifs. 4️⃣ Une fois approuvé, nous donnons vie à votre idée ! Prêt à faire le premier pas ?",
-                        team: "🌟 Prime Creative est une équipe de designers, d'artistes 3D, de développeurs et de stratèges marketing. Nous créons l'excellence numérique depuis plus de 6 ans, au service de clients allant des start-ups aux marques mondiales. Nous sommes passionnés par la transformation d'idées audacieuses en réalité !",
-                        contact: "📬 Vous pouvez nous joindre à hello@myprimecreative.com ou au +(509) 3774-3116. Nous sommes basés à Montagne Noire, PV - Remote, mais nous travaillons à distance avec des clients du monde entier. Utilisez le formulaire de contact sur cette page — nous répondons sous 24h !",
-                        thank: "De rien ! 🙌 Je suis là quand vous avez besoin de moi. Autre chose ?",
-                        bye: "Au revoir pour l'instant ! 👋 N'hésitez pas à revenir quand vous voulez si vous avez d'autres questions. Bonne journée !",
-                        whatsapp: "📱 Vous pouvez parler directement avec un agent du support client sur WhatsApp. Cliquez sur ce lien pour démarrer une conversation : https://wa.me/message/TWWSM72QHJJ4B1",
-                        default: "🤔 Hmm, je ne suis pas sûr de comprendre. Pouvez-vous reformuler ? Je peux vous aider sur les services, les prix, le portfolio ou le démarrage d'un projet. Ou dites simplement 'bonjour' pour discuter !"
-                    }
-                },
-                ht: {
-                    greeting: "👋 Bonjou! Mwen se Prime AI — asistan kreyatif ou. Mande m' tout sa w vle konnen sou sèvis nou, pri, pòtfolyo, oswa nenpòt lòt bagay!",
-                    quickReplies: [
-                        { text: "📐 Sèvis", value: "Ki sèvis ou ofri?" },
-                        { text: "💰 Pri", value: "Konbyen yon pwojè koute?" },
-                        { text: "🎨 Pòtfolyo", value: "Eske mwen ka wè pòtfolyo ou?" },
-                        { text: "🚀 Kòmanse", value: "Kòman pou m kòmanse yon pwojè?" },
-                        { text: "💬 WhatsApp", value: "Mwen vle pale ak yon moun reyèl" }
-                    ],
-                    headerTitle: "Asistan Prime AI",
-                    headerStatus: "An liy · pare pou ede",
-                    placeholder: "Mete mesaj ou…",
-                    responses: {
-                        services: "Nou ofri 4 sèvis prensipal:\n• 🎨 Desen Grafik — branding, enprime, vizyèl sosyal\n• 🧊 3D & Animasyon — modèl, rann, animasyon\n• 💻 Dev Wèb & App — full-stack, e-commerce, apps cross-platform\n• 📈 Maketing Digital — SEO, rezo sosyal, piblisite, estrateji\nKilès ki enterese ou plis?",
-                        graphic: "🎨 Ekip desen grafik nou kreye logo, idantite mak, anbalaj, ak vizyèl rezo sosyal ki estrawòdinè. Nou kreye lang vizyèl koyeran ki fè mak yo inoubliyab. Ou vle wè kèk egzanp?",
-                        threeD: "🧊 Studio 3D & Animasyon nou ofri modèl wo nivo, vizyalizasyon pwodwi, rann achitekti, ak animasyon. Nou pote konsèp yo nan lavi ak pwofondè ak reyalis. Ou gen yon pwojè nan tèt ou?",
-                        web: "💻 Nou bati sit wèb pèsonalize, platfòm e-commerce, solisyon CMS, apps full-stack, ak apps mobil cross-platform (iOS, Android, Flutter, React Native). Soti nan MVP rive nan pwodwi fini — nou kouvri tout!",
-                        marketing: "📈 Ekip maketing dijital nou ogmante prezans ou sou entènèt ak SEO, jesyon rezo sosyal, estrateji kontni, piblisite peye, ak analiz. Nou konvèti leads an kliyan fidèl. Ou pare pou grandi?",
-                        pricing: "💰 Pri yo varye selon pwojè a:\n• Kreyasyon logo: kòmanse nan $200\n• Pakè konplè (logo + kat biznis + badj + elatriye): $500\n• Sit wèb/App: sou mezi, soti nan $1,000 rive $50,000+\n• Maketing Digital: kòmanse nan $200/mwa\nOu vle yon estimasyon pèsonalize? Di m plis sou pwojè ou!",
-                        portfolio: "🎨 Ou ka gade seksyon pòtfolyo nou sou paj sa! Nou te fè idantite mak, rann 3D mèb, sit e-commerce mòd, apps finansyè, ak kanpay sosyal. Mwen ka pataje plis egzanp adapte — ki kalite travay w ap chèche?",
-                        start: "🚀 Kòmanse yon pwojè fasil! 1️⃣ Kontakte nou via fòmilè a oswa imèl hello@myprimecreative.com. 2️⃣ Nou pran yon apèl dekouvèt pou konprann vizyon ou. 3️⃣ Nou voye yon pwopozisyon ak delè ak pri. 4️⃣ Yon fwa apwouve, nou bay lide ou lavi! Ou pare pou premye etap la?",
-                        team: "🌟 Prime Creative se yon ekip designer, atis 3D, developè, ak estratejis maketing. Nou kree ekselans dijital depi plis pase 6 an, pou kliyan ki soti nan start-up rive nan mak mondyal. Nou pasyone pou fè lide odasye vin reyalite!",
-                        contact: "📬 Ou ka kontakte nou nan hello@myprimecreative.com oswa +(509) 3774-3116. Nou baze nan Montagne Noire, PV - Remote, men nou travay aleka ak kliyan atravè lemond. Sèvi ak fòmilè kontak sou paj sa — nou reponn nan lespas 24h!",
-                        thank: "Padekoua! 🙌 Mwen la chak fwa ou bezwen mwen. Yon lòt bagay?",
-                        bye: "Orevwa pou kounye a! 👋 Ou lib pou retounen nenpòt lè si w gen plis kesyon. Pase yon bon jounen!",
-                        whatsapp: "📱 Ou ka pale dirèkteman ak yon ajan sipò kliyan sou WhatsApp. Klike sou lyen sa a pou kòmanse yon konvèsasyon: https://wa.me/message/TWWSM72QHJJ4B1",
-                        default: "🤔 Hmm, mwen pa konprann byen. Èske ou ka repete? Mwen kapab ede w sou sèvis, pri, pòtfolyo, oswa kòmanse yon pwojè. Oswa jis di 'bonjou' pou pale!"
-                    }
-                }
-            };
-
-            let currentLang = 'en';
-
-            // ── Apply main page language ──
-            function applyLanguage(lang) {
-                if (!translations[lang]) return;
-                // Main page translations
-                document.querySelectorAll('[data-translate]').forEach(el => {
-                    const key = el.getAttribute('data-translate');
-                    if (translations[lang][key] !== undefined) {
-                        if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA' || el.tagName === 'SELECT') {} else {
-                            el.innerHTML = translations[lang][key];
-                        }
-                    }
-                });
-                document.querySelectorAll('[data-translate-placeholder]').forEach(el => {
-                    const key = el.getAttribute('data-translate-placeholder');
-                    if (translations[lang][key] !== undefined) el.placeholder = translations[lang][key];
-                });
-                document.querySelectorAll('.lang-btn').forEach(btn => {
-                    btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
-                });
-                currentLang = lang;
-
-                // Update chat UI
-                updateChatLanguage(lang);
-
-                // Update portfolio slideshow (call global function)
-                if (typeof window.updateSlideshowTranslations === 'function') {
-                    window.updateSlideshowTranslations(lang);
-                }
-            }
-
-            // ── Update chat UI ──
-            function updateChatLanguage(lang) {
-                const t = chatTranslations[lang] || chatTranslations.en;
-                document.getElementById('chatHeaderTitle').textContent = t.headerTitle;
-                document.getElementById('chatHeaderStatus').textContent = t.headerStatus;
-                document.getElementById('chatInput').placeholder = t.placeholder;
-                const container = document.getElementById('quickReplies');
-                container.innerHTML = '';
-                t.quickReplies.forEach(q => {
-                    const btn = document.createElement('button');
-                    btn.className = 'quick-reply-btn';
-                    if (q.text.includes('WhatsApp')) btn.classList.add('whatsapp-btn');
-                    btn.textContent = q.text;
-                    btn.setAttribute('data-text', q.value);
-                    container.appendChild(btn);
-                });
-                const msgs = document.getElementById('chatMessages');
-                const firstMsg = msgs.querySelector('.msg.bot');
-                if (firstMsg && msgs.children.length === 1) {
-                    firstMsg.innerHTML = t.greeting + ' <span class="msg-time">' + new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) + '</span>';
-                }
-                document.querySelectorAll('#chatLangPicker button').forEach(btn => {
-                    btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
-                });
-            }
-
-            // ── Get chat response ──
-            function getChatResponse(text, lang) {
-                const t = chatTranslations[lang] || chatTranslations.en;
-                const lower = text.toLowerCase();
-                if (lower.includes('whatsapp') || lower.includes('real person') || lower.includes('speak with a real') ||
-                    lower.includes('pale ak yon moun') || lower.includes('parler à une vraie personne')) {
-                    return t.responses.whatsapp;
-                }
-                if (lower.includes('service') || lower.includes('offer') || lower.includes('do you do') || lower.includes('what can you') || lower.includes('capabilities') ||
-                    lower.includes('sèvis') || lower.includes('ofri') || lower.includes('services') || lower.includes('proposez')) {
-                    return t.responses.services;
-                }
-                if (lower.includes('graphic') || lower.includes('logo') || lower.includes('brand') || lower.includes('identity') || lower.includes('print') || lower.includes('packaging') ||
-                    lower.includes('desen') || lower.includes('idantite') || lower.includes('design') || lower.includes('identité')) {
-                    return t.responses.graphic;
-                }
-                if (lower.includes('3d') || lower.includes('model') || lower.includes('render') || lower.includes('motion') || lower.includes('animation') || lower.includes('visualization') ||
-                    lower.includes('modèl') || lower.includes('rann') || lower.includes('animasyon')) {
-                    return t.responses.threeD;
-                }
-                if (lower.includes('web') || lower.includes('app') || lower.includes('website') || lower.includes('ecommerce') || lower.includes('e-commerce') || lower.includes('cms') || lower.includes('full-stack') || lower.includes('mobile') ||
-                    lower.includes('sit wèb') || lower.includes('devlopman') || lower.includes('site web')) {
-                    return t.responses.web;
-                }
-                if (lower.includes('marketing') || lower.includes('seo') || lower.includes('social media') || lower.includes('ads') || lower.includes('analytics') || lower.includes('content') ||
-                    lower.includes('maketing') || lower.includes('digital') || lower.includes('réseaux')) {
-                    return t.responses.marketing;
-                }
-                if (lower.includes('price') || lower.includes('cost') || lower.includes('how much') || lower.includes('quote') || lower.includes('budget') || lower.includes('pricing') || lower.includes('affordable') ||
-                    lower.includes('pri') || lower.includes('koute') || lower.includes('tarifs') || lower.includes('combien')) {
-                    return t.responses.pricing;
-                }
-                if (lower.includes('portfolio') || lower.includes('examples') || lower.includes('work') || lower.includes('showcase') || lower.includes('past project') || lower.includes('gallery') ||
-                    lower.includes('pòtfolyo') || lower.includes('travay') || lower.includes('exemples')) {
-                    return t.responses.portfolio;
-                }
-                if (lower.includes('start') || lower.includes('begin') || lower.includes('how to') || lower.includes('process') || lower.includes('project') || lower.includes('engage') || lower.includes('hire') ||
-                    lower.includes('kòmanse') || lower.includes('démarrer') || lower.includes('comment')) {
-                    return t.responses.start;
-                }
-                if (lower.includes('team') || lower.includes('about') || lower.includes('company') || lower.includes('who are you') || lower.includes('experience') ||
-                    lower.includes('ekip') || lower.includes('sou') || lower.includes('équipe')) {
-                    return t.responses.team;
-                }
-                if (lower.includes('contact') || lower.includes('email') || lower.includes('phone') || lower.includes('reach') || lower.includes('address') ||
-                    lower.includes('kontak') || lower.includes('imèl') || lower.includes('téléphone')) {
-                    return t.responses.contact;
-                }
-                if (lower.includes('thank') || lower.includes('thanks') || lower.includes('appreciate') || lower.includes('grateful') ||
-                    lower.includes('mèsi') || lower.includes('merci')) {
-                    return t.responses.thank;
-                }
-                if (lower.includes('bye') || lower.includes('goodbye') || lower.includes('see you') || lower.includes('later') || lower.includes('ciao') ||
-                    lower.includes('orevwa') || lower.includes('au revoir')) {
-                    return t.responses.bye;
-                }
-                return t.responses.default;
-            }
-
-            // ── Chat DOM refs ──
-            const chatToggle = document.getElementById('chatToggle');
-            const chatWindow = document.getElementById('chatWindow');
-            const chatCloseBtn = document.getElementById('chatCloseBtn');
-            const chatMessages = document.getElementById('chatMessages');
-            const chatInput = document.getElementById('chatInput');
-            const chatSendBtn = document.getElementById('chatSendBtn');
-            const quickReplies = document.getElementById('quickReplies');
-            const settingsBtn = document.getElementById('chatSettingsBtn');
-            const settingsOverlay = document.getElementById('chatSettingsOverlay');
-            const settingsCancel = document.getElementById('settingsCancel');
-            const settingsSave = document.getElementById('settingsSave');
-            const apiKeyInput = document.getElementById('apiKeyInput');
-            const modelSelect = document.getElementById('modelSelect');
-            const chatLangPicker = document.getElementById('chatLangPicker');
-
-            let isOpen = false, isProcessing = false, useAPI = false;
-            let apiKey = localStorage.getItem('prime_chat_api_key') || '';
-            let selectedModel = localStorage.getItem('prime_chat_model') || 'google/gemini-2.0-flash-exp:free';
-            if (apiKey) { apiKeyInput.value = apiKey; useAPI = true; }
-            modelSelect.value = selectedModel;
-
-            // ── Chat language picker ──
-            chatLangPicker.addEventListener('click', (e) => {
-                const btn = e.target.closest('button');
-                if (!btn) return;
-                const lang = btn.getAttribute('data-lang');
-                chatLangPicker.querySelectorAll('button').forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                applyLanguage(lang);
-                const langName = { en: 'English', fr: 'French', ht: 'Kreyol' } [lang];
-                addMessage(`🌐 Language switched to ${langName}. How can I help you?`, 'bot');
-            });
-
-            // ── Chat message functions ──
-            function addMessage(text, sender, time) {
-                const div = document.createElement('div');
-                div.className = `msg ${sender}`;
-                if (sender === 'bot' && text === 'typing') {
-                    div.innerHTML = `<div class="msg-typing"><span></span><span></span><span></span></div>`;
-                    div.id = 'typingIndicator';
+                    typingElement.textContent = currentText.substring(0, charIndex);
+                    typeTimer = setTimeout(type, 40);
                 } else {
-                    div.textContent = text;
-                    const span = document.createElement('span');
-                    span.className = 'msg-time';
-                    span.textContent = time || new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-                    div.appendChild(span);
-                }
-                chatMessages.appendChild(div);
-                chatMessages.scrollTop = chatMessages.scrollHeight;
-            }
-
-            function removeTyping() {
-                const typing = document.getElementById('typingIndicator');
-                if (typing) typing.remove();
-            }
-
-            async function sendMessage(text) {
-                if (!text.trim() || isProcessing) return;
-                isProcessing = true;
-                chatSendBtn.disabled = true;
-                addMessage(text.trim(), 'user');
-                chatInput.value = '';
-                chatInput.style.height = 'auto';
-                addMessage('typing', 'bot');
-                try {
-                    let reply;
-                    if (useAPI && apiKey) {
-                        const lang = currentLang;
-                        const systemPrompt = `You are Prime AI, a friendly assistant for Prime Creative. 
-                        Respond in ${lang === 'fr' ? 'French' : lang === 'ht' ? 'Haitian Creole' : 'English'}.
-                        Keep responses concise (2-4 sentences). 
-                        If asked about pricing: logo $200, full package $500, website/app starts at $1k to $50k+, marketing starts at $200.
-                        If asked about WhatsApp, direct them to https://wa.me/message/TWWSM72QHJJ4B1.
-                        Be warm and professional.`;
-                        reply = await callOpenRouter(text, systemPrompt);
+                    if (charIndex <= currentText.length) {
+                        typingElement.textContent = currentText.substring(0, charIndex);
+                        charIndex++;
+                        typeTimer = setTimeout(type, 60 + Math.random() * 40);
                     } else {
-                        await new Promise(r => setTimeout(r, 400 + Math.random() * 600));
-                        reply = getChatResponse(text, currentLang);
+                        isDeleting = true;
+                        typeTimer = setTimeout(type, 2500);
                     }
-                    removeTyping();
-                    addMessage(reply, 'bot');
-                } catch (err) {
-                    removeTyping();
-                    const fallback = getChatResponse(text, currentLang);
-                    addMessage("⚠️ Oops, something went wrong. I'll fall back to my built-in knowledge. " + fallback, 'bot');
-                    console.error('Chat error:', err);
                 }
-                isProcessing = false;
-                chatSendBtn.disabled = false;
-                chatInput.focus();
             }
-
-            async function callOpenRouter(text, systemPrompt) {
-                const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${apiKey}` },
-                    body: JSON.stringify({
-                        model: selectedModel,
-                        messages: [{ role: 'system', content: systemPrompt }, { role: 'user', content: text }],
-                        temperature: 0.7,
-                        max_tokens: 200,
-                    })
-                });
-                if (!response.ok) { const err = await response.text(); throw new Error(`API error ${response.status}: ${err}`); }
-                const data = await response.json();
-                return data.choices?.[0]?.message?.content?.trim() || "Hmm, I didn't get a proper response. Let me try again — what can I help you with?";
-            }
-
-            // ── Toggle chat ──
-            function toggleChat(open) {
-                isOpen = (open !== undefined) ? open : !isOpen;
-                chatWindow.classList.toggle('open', isOpen);
-                if (isOpen) chatInput.focus();
-            }
-            chatToggle.addEventListener('click', () => toggleChat());
-            chatCloseBtn.addEventListener('click', () => toggleChat(false));
-
-            chatSendBtn.addEventListener('click', () => sendMessage(chatInput.value));
-            chatInput.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(chatInput.value); }
-            });
-            chatInput.addEventListener('input', () => {
-                chatInput.style.height = 'auto';
-                chatInput.style.height = Math.min(chatInput.scrollHeight, 100) + 'px';
-            });
-
-            quickReplies.addEventListener('click', (e) => {
-                const btn = e.target.closest('.quick-reply-btn');
-                if (btn) { const text = btn.getAttribute('data-text'); if (text) sendMessage(text); }
-            });
-
-            settingsBtn.addEventListener('click', () => { settingsOverlay.classList.add('open'); apiKeyInput.value = apiKey;
-                modelSelect.value = selectedModel; });
-            settingsCancel.addEventListener('click', () => { settingsOverlay.classList.remove('open'); });
-            settingsOverlay.addEventListener('click', (e) => { if (e.target === settingsOverlay) settingsOverlay.classList.remove(
-                    'open'); });
-            settingsSave.addEventListener('click', () => {
-                const key = apiKeyInput.value.trim();
-                apiKey = key; useAPI = !!key;
-                localStorage.setItem('prime_chat_api_key', key);
-                selectedModel = modelSelect.value;
-                localStorage.setItem('prime_chat_model', selectedModel);
-                settingsOverlay.classList.remove('open');
-                addMessage(useAPI ? "🔌 AI mode enabled! I'll now use real AI for smarter responses." :
-                    "🧠 Switched to built-in assistant mode. I'll still answer all your questions!", 'bot');
-            });
-
-            document.addEventListener('click', (e) => {
-                const widget = document.getElementById('chatWidget');
-                if (isOpen && widget && !widget.contains(e.target) && e.target !== chatToggle) {
-                    if (settingsOverlay.classList.contains('open')) return;
-                    toggleChat(false);
-                }
-            });
-
-            // ── Init chat ──
-            applyLanguage('en');
-            const initialGreeting = chatTranslations.en.greeting;
-            const msgDiv = document.createElement('div');
-            msgDiv.className = 'msg bot';
-            msgDiv.innerHTML = initialGreeting + ' <span class="msg-time">' + new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) + '</span>';
-            chatMessages.appendChild(msgDiv);
-
-            // ── Main page language picker ──
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    const lang = this.getAttribute('data-lang');
-                    applyLanguage(lang);
-                    document.querySelectorAll('#chatLangPicker button').forEach(b => {
-                        b.classList.toggle('active', b.getAttribute('data-lang') === lang);
-                    });
-                });
-            });
-
-            // ── Back to top ──
-            const backBtn = document.getElementById('backToTop');
-            window.addEventListener('scroll', () => backBtn.classList.toggle('show', window.scrollY > 400));
-            backBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-
-            // ── Mobile menu ──
-            const menuToggle = document.getElementById('menuToggle');
-            const navLinks = document.getElementById('navLinks');
-            menuToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
-            document.addEventListener('click', (e) => {
-                if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) navLinks.classList.remove('open');
-            });
-
-            // ── Dark mode ──
-            const darkToggle = document.getElementById('darkModeToggle');
-            if (localStorage.getItem('theme') === 'dark') document.body.classList.add('dark');
-            darkToggle.addEventListener('click', () => {
-                document.body.classList.toggle('dark');
-                localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
-                darkToggle.innerHTML = document.body.classList.contains('dark') ? '<i class="fas fa-sun"></i> <span>Light</span>' :
-                    '<i class="fas fa-moon"></i> <span>Dark</span>';
-            });
-
-            // ── Scroll reveal ──
-            document.querySelectorAll('.fade-up').forEach(el => {
-                new IntersectionObserver((entries, obs) => {
-                    entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('revealed');
-                            obs.unobserve(entry.target); } });
-                }, { threshold: 0.1 }).observe(el);
-            });
-
-            // ── Stats counter ──
-            let counted = false;
-            const statNumbers = document.querySelectorAll('.stat-number');
-            const statsObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting && !counted) {
-                        counted = true;
-                        statNumbers.forEach(stat => {
-                            const target = parseInt(stat.getAttribute('data-target'));
-                            let current = 0;
-                            const increment = target / 60;
-                            const update = () => { current += increment; if (current < target) { stat.innerText =
-                                    Math.floor(current); requestAnimationFrame(update); } else stat.innerText =
-                                    target; };
-                            update();
-                        });
-                        statsObserver.disconnect();
-                    }
-                });
-            }, { threshold: 0.3 });
-            const statsContainer = document.getElementById('statsContainer');
-            if (statsContainer) statsObserver.observe(statsContainer);
-
-            // ── Form handler: send email via mailto ──
-            const form = document.getElementById('inquiryForm');
-            const feedback = document.getElementById('formFeedback');
-
-            form.addEventListener('submit', function(e) {
-                e.preventDefault(); // We'll handle the submission
-
-                const name = document.getElementById('name')?.value.trim();
-                const email = document.getElementById('email')?.value.trim();
-                const service = document.getElementById('serviceInterest')?.value;
-                const message = document.getElementById('message')?.value.trim();
-
-                // Validation
-                if (!name || !email) {
-                    feedback.textContent = '❌ Please fill name and email.';
-                    feedback.style.color = '#e11d48';
-                    return;
-                }
-                if (!email.includes('@')) {
-                    feedback.textContent = '❌ Valid email required.';
-                    feedback.style.color = '#e11d48';
-                    return;
-                }
-
-                // Build email subject and body
-                const subject = `New inquiry from ${name}`;
-                const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0AService: ${service}%0D%0AMessage: ${message || 'No message provided.'}`;
-
-                // Open mailto link
-                window.location.href = `mailto:hello@myprimecreative.com?subject=${encodeURIComponent(subject)}&body=${body}`;
-
-                // Show success message
-                feedback.innerHTML = '✨ Your inquiry has been sent! We\'ll reply within 24h.';
-                feedback.style.color = '#10b981';
-                form.reset();
-                setTimeout(() => feedback.textContent = '', 4000);
-            });
-
-            // ── Smooth scroll ──
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    const targetId = this.getAttribute('href');
-                    if (targetId === "#" || targetId === "") return;
-                    const target = document.querySelector(targetId);
-                    if (target) {
-                        e.preventDefault();
-                        if (navLinks.classList.contains('open')) navLinks.classList.remove('open');
-                        target.scrollIntoView({ behavior: 'smooth' });
-                    }
-                });
-            });
-
-            // ── Force page to top on load ──
-            window.addEventListener('load', function() {
-                if (window.location.hash) {
-                    history.replaceState(null, '', window.location.pathname + window.location.search);
-                }
-                window.scrollTo(0, 0);
-            });
-
-            console.log('🚀 Prime Creative — fully loaded.');
+            setTimeout(type, 500);
         })();
+
+        // ── Translations ──
+        const translations = {
+            en: {
+                nav_home: "Home", nav_services: "Services", nav_portfolio: "Portfolio", nav_contact: "Contact", nav_talk: "Let's talk",
+                hero_title1: "Where", hero_title2: "vision", hero_title3: "meets<br>execution",
+                hero_desc: "Graphic design, 3D artistry, websites & apps — we craft digital experiences that resonate. Your brand, elevated.",
+                hero_btn1: "Start a project", hero_btn2: "Explore services",
+                graphic_title: "Graphic", graphic_sub: "Identity, print, digital",
+                "3d_title": "3D", "3d_sub": "Modeling & rendering",
+                webapp_title: "Web & App", webapp_sub: "Full-stack dev",
+                marketing_title: "Marketing", marketing_sub: "Digital strategy",
+                services_title: "What we deliver", services_sub: "Creative solutions that blend aesthetics, technology, and performance",
+                service1_title: "Graphic Design", service1_desc: "Logos, brand identity, packaging, social media visuals, and print materials that stand out. We create cohesive visual languages.",
+                service2_title: "3D & Motion", service2_desc: "High-end 3D modeling, product visualization, architectural rendering, and animation. Bring concepts to life with depth & realism.",
+                service3_title: "Web & App Dev", service3_desc: "Custom websites, e‑commerce, CMS, full‑stack, and cross-platform apps (iOS, Android, Flutter, React Native). From MVP to polished product.",
+                service4_title: "Digital Marketing", service4_desc: "SEO, social media management, content strategy, paid ads, and analytics. Grow your brand's online presence and convert leads into customers.",
+                explore: "Explore →",
+                stat_projects: "Projects Completed", stat_clients: "Happy Clients", stat_years: "Years Excellence", stat_team: "Team Members",
+                portfolio_title: "Creative showcase", portfolio_sub: "A glimpse of recent magic — design, 3D & digital craft",
+                gallery1: "Brand Identity", gallery1_sub: "Visual identity system",
+                gallery2: "3D Furniture", gallery2_sub: "Product viz",
+                gallery3: "Web Studio", gallery3_sub: "Fashion e‑commerce",
+                gallery4: "Fintech App", gallery4_sub: "UI/UX + dev",
+                gallery5: "Social Campaign", gallery5_sub: "Digital marketing",
+                portfolio_cta: "→ Request full portfolio",
+                testimonial_title: "What clients say", testimonial_sub: "Trusted by creators & enterprises worldwide",
+                testimonial1: "\"Prime Creative redesigned our entire brand identity and built a high‑performance e‑commerce site. Sales increased by 140% in 3 months.\"",
+                author1: "— Sophia C.", role1: "Creative Director, Lumina",
+                testimonial2: "\"The 3D product visualizations blew us away. The team's attention to detail and speed is unmatched. Highly recommend for any immersive work.\"",
+                author2: "— Marcus V.", role2: "Founder, ModaStudio",
+                testimonial3: "\"From concept to launch, they delivered a seamless fintech app. Users love the UI/UX. Professional and creative — 10/10.\"",
+                author3: "— Aisha K.", role3: "CTO, NimbusPay",
+                contact_title1: "Let's create something", contact_title2: "remarkable",
+                contact_desc: "Got a project in mind? Whether it's a complete brand overhaul, a 3D visual, or a complex web/app — let's talk.",
+                contact_address: "Montagne Noire, PV - Remote",
+                contact_phone: "+(509) 3774-3116",
+                contact_email: "hello@myprimecreative.com",
+                form_name: "Full name", form_email: "Email address", form_message: "Tell us about your vision...", form_submit: "Send inquiry →",
+                service_opt1: "Graphic Design", service_opt2: "3D & Motion", service_opt3: "Web & App Development", service_opt4: "Digital Marketing", service_opt5: "Other / full package",
+                footer_desc: "Design, 3D, code — we craft digital excellence for forward-thinking brands.",
+                footer_explore: "Explore", footer_services: "Services", footer_portfolio: "Portfolio", footer_careers: "Careers",
+                footer_legal: "Legal", footer_privacy: "Privacy policy", footer_terms: "Terms of service",
+                copyright: "© 2025 PRIME CREATIVE — All works and brands belong to their respective owners. Crafted with",
+                copyright_end: "for bold ideas.",
+                portfolio_main_title: "Our <span>Portfolio</span>",
+                portfolio_cat1_main: "Design &",
+                portfolio_cat1_sub: "Marketing",
+                portfolio_cat2_main: "Website",
+                portfolio_cat2_sub: "Creation",
+                portfolio_cat3_main: "App",
+                portfolio_cat3_sub: "Creation",
+                portfolio_slide1_title: "Chic Attire",
+                portfolio_slide1_category: "Logo · Design · Flyers",
+                portfolio_slide1_desc: "We specialize in Logo Design, Flyers, and Digital Marketing solutions to elevate your brand.",
+                portfolio_slide2_title: "Chic Attire",
+                portfolio_slide2_category: "Logo · Design · Flyers",
+                portfolio_slide2_desc: "We specialize in Logo Design, Flyers, and Digital Marketing solutions to elevate your brand.",
+                portfolio_slide3_title: "Jewelry by Genevieve",
+                portfolio_slide3_category: "Jewelry · Design · Flyers",
+                portfolio_slide3_desc: "We specialize in Logo Design, Flyers, and Digital Marketing solutions to elevate your brand.",
+                portfolio_slide4_title: "Chic Attire",
+                portfolio_slide4_category: "Website · E-commerce",
+                portfolio_slide4_desc: "E-commerce website showcasing jewelry collections. View live demo to explore the full experience.",
+                portfolio_slide5_title: "BIWI",
+                portfolio_slide5_category: "Website · E-commerce",
+                portfolio_slide5_desc: "BIWI e-commerce platform – explore our curated collection online.",
+                portfolio_slide6_title: "Task",
+                portfolio_slide6_category: "App · Tasks",
+                portfolio_slide6_desc: "Task management app – organize your daily tasks efficiently with a clean and intuitive interface.",
+                portfolio_slide7_title: "Booking",
+                portfolio_slide7_category: "App · Booking",
+                portfolio_slide7_desc: "Booking app – easily book appointments, services, and reservations with a seamless experience."
+            },
+            fr: {
+                nav_home: "Accueil", nav_services: "Services", nav_portfolio: "Portfolio", nav_contact: "Contact", nav_talk: "Discutons",
+                hero_title1: "Là où la", hero_title2: "vision", hero_title3: "rencontre<br>l'exécution",
+                hero_desc: "Design graphique, art 3D, sites web et applications — nous créons des expériences numériques qui résonnent. Votre marque, élevée.",
+                hero_btn1: "Commencer un projet", hero_btn2: "Explorer les services",
+                graphic_title: "Graphique", graphic_sub: "Identité, print, digital",
+                "3d_title": "3D", "3d_sub": "Modélisation & rendu",
+                webapp_title: "Web & App", webapp_sub: "Dev full-stack",
+                marketing_title: "Marketing", marketing_sub: "Stratégie digitale",
+                services_title: "Ce que nous livrons", services_sub: "Des solutions créatives mêlant esthétique, technologie et performance",
+                service1_title: "Design Graphique", service1_desc: "Logos, identité de marque, packaging, visuels réseaux sociaux et supports imprimés qui se démarquent. Nous créons des langages visuels cohérents.",
+                service2_title: "3D & Animation", service2_desc: "Modélisation 3D haut de gamme, visualisation de produits, rendu architectural et animation. Donnez vie à vos concepts avec profondeur et réalisme.",
+                service3_title: "Dev Web & App", service3_desc: "Sites web sur mesure, e‑commerce, CMS, full-stack et applications cross-platform (iOS, Android, Flutter, React Native). Du MVP au produit abouti.",
+                service4_title: "Marketing Digital", service4_desc: "SEO, gestion des réseaux sociaux, stratégie de contenu, publicités payantes et analytique. Développez la présence en ligne de votre marque et convertissez les prospects en clients.",
+                explore: "Explorer →",
+                stat_projects: "Projets réalisés", stat_clients: "Clients satisfaits", stat_years: "Années d'excellence", stat_team: "Membres de l'équipe",
+                portfolio_title: "Vitrine créative", portfolio_sub: "Un aperçu de notre magie récente — design, 3D & artisanat numérique",
+                gallery1: "Identité de marque", gallery1_sub: "Système d'identité",
+                gallery2: "Mobilier 3D", gallery2_sub: "Visualisation produit",
+                gallery3: "Studio Web", gallery3_sub: "E‑commerce mode",
+                gallery4: "App Fintech", gallery4_sub: "UI/UX + dev",
+                gallery5: "Campagne Sociale", gallery5_sub: "Marketing digital",
+                portfolio_cta: "→ Demander le portfolio complet",
+                testimonial_title: "Ce que disent nos clients", testimonial_sub: "Approuvé par les créateurs et entreprises du monde entier",
+                testimonial1: "« Prime Creative a repensé notre identité de marque et construit un site e‑commerce haute performance. Les ventes ont augmenté de 140% en 3 mois. »",
+                author1: "— Sophia C.", role1: "Directrice créative, Lumina",
+                testimonial2: "« Les visualisations 3D nous ont époustouflés. L'attention aux détails et la rapidité de l'équipe sont inégalées. Je recommande vivement. »",
+                author2: "— Marcus V.", role2: "Fondateur, ModaStudio",
+                testimonial3: "« Du concept au lancement, ils ont livré une application fintech fluide. Les utilisateurs adorent l'UI/UX. Professionnel et créatif — 10/10. »",
+                author3: "— Aisha K.", role3: "CTO, NimbusPay",
+                contact_title1: "Créons quelque chose de", contact_title2: "remarquable",
+                contact_desc: "Un projet en tête ? Refonte complète de marque, visuel 3D ou application/web complexe — parlons-en.",
+                contact_address: "Montagne Noire, PV - Remote",
+                contact_phone: "+(509) 3774-3116",
+                contact_email: "hello@myprimecreative.com",
+                form_name: "Nom complet", form_email: "Adresse e-mail", form_message: "Parlez-nous de votre vision...", form_submit: "Envoyer la demande →",
+                service_opt1: "Design Graphique", service_opt2: "3D & Animation", service_opt3: "Développement Web & App", service_opt4: "Marketing Digital", service_opt5: "Autre / pack complet",
+                footer_desc: "Design, 3D, code — nous créons l'excellence numérique pour les marques tournées vers l'avenir.",
+                footer_explore: "Explorer", footer_services: "Services", footer_portfolio: "Portfolio", footer_careers: "Carrières",
+                footer_legal: "Juridique", footer_privacy: "Confidentialité", footer_terms: "Conditions d'utilisation",
+                copyright: "© 2025 PRIME CREATIVE — Toutes les œuvres et marques appartiennent à leurs propriétaires respectifs. Fabriqué avec",
+                copyright_end: "pour les idées audacieuses.",
+                portfolio_main_title: "Notre <span>Portfolio</span>",
+                portfolio_cat1_main: "Design &",
+                portfolio_cat1_sub: "Marketing",
+                portfolio_cat2_main: "Site web",
+                portfolio_cat2_sub: "Création",
+                portfolio_cat3_main: "App",
+                portfolio_cat3_sub: "Création",
+                portfolio_slide1_title: "Chic Attire",
+                portfolio_slide1_category: "Logo · Design · Flyers",
+                portfolio_slide1_desc: "Nous sommes spécialisés dans la création de logos, flyers et solutions de marketing digital pour valoriser votre marque.",
+                portfolio_slide2_title: "Chic Attire",
+                portfolio_slide2_category: "Logo · Design · Flyers",
+                portfolio_slide2_desc: "Nous sommes spécialisés dans la création de logos, flyers et solutions de marketing digital pour valoriser votre marque.",
+                portfolio_slide3_title: "Jewelry by Genevieve",
+                portfolio_slide3_category: "Bijoux · Design · Flyers",
+                portfolio_slide3_desc: "Nous sommes spécialisés dans la création de logos, flyers et solutions de marketing digital pour valoriser votre marque.",
+                portfolio_slide4_title: "Chic Attire",
+                portfolio_slide4_category: "Site web · E-commerce",
+                portfolio_slide4_desc: "Site e-commerce présentant des collections de bijoux. Visionnez la démo en direct pour découvrir l'expérience complète.",
+                portfolio_slide5_title: "BIWI",
+                portfolio_slide5_category: "Site web · E-commerce",
+                portfolio_slide5_desc: "Plateforme e-commerce BIWI – explorez notre collection en ligne.",
+                portfolio_slide6_title: "Task",
+                portfolio_slide6_category: "App · Tâches",
+                portfolio_slide6_desc: "Application de gestion de tâches – organisez vos tâches quotidiennes efficacement avec une interface propre et intuitive.",
+                portfolio_slide7_title: "Booking",
+                portfolio_slide7_category: "App · Réservation",
+                portfolio_slide7_desc: "Application de réservation – réservez facilement des rendez-vous, services et réservations avec une expérience fluide."
+            },
+            ht: {
+                nav_home: "Akèy", nav_services: "Sèvis", nav_portfolio: "Pòtfolyo", nav_contact: "Kontak", nav_talk: "Ann pale",
+                hero_title1: "Kote", hero_title2: "vizyon", hero_title3: "rankontre<br>egzekisyon",
+                hero_desc: "Desen grafik, atis 3D, sit wèb ak aplikasyon — nou kreye eksperyans dijital ki rezone. Mak ou, elve.",
+                hero_btn1: "Kòmanse yon pwojè", hero_btn2: "Eksplore sèvis yo",
+                graphic_title: "Grafik", graphic_sub: "Idantite, enprime, dijital",
+                "3d_title": "3D", "3d_sub": "Modèl ak rann",
+                webapp_title: "Wèb & App", webapp_sub: "Dev full-stack",
+                marketing_title: "Maketing", marketing_sub: "Estrateji dijital",
+                services_title: "Sa nou livre", services_sub: "Solisyon kreyatif ki melanje estetik, teknoloji ak pèfòmans",
+                service1_title: "Desen Grafik", service1_desc: "Logo, idantite mak, anbalaj, vizyèl rezo sosyal ak materyèl enprime ki kanpe deyò. Nou kreye lang vizyèl koyeran.",
+                service2_title: "3D & Animasyon", service2_desc: "Modèl 3D wo nivo, vizyalizasyon pwodwi, rann achitekti ak animasyon. Pote konsèp yo nan lavi ak pwofondè ak reyalis.",
+                service3_title: "Devlopman Wèb & App", service3_desc: "Sit wèb pèsonalize, e-commerce, CMS, full-stack, ak aplikasyon cross-platform (iOS, Android, Flutter, React Native). Soti nan MVP rive nan pwodwi poli.",
+                service4_title: "Maketing Digital", service4_desc: "SEO, jesyon rezo sosyal, estrateji kontni, piblisite peye, ak analiz. Ogmante prezans ou sou entènèt epi konvèti leads an kliyan.",
+                explore: "Eksplore →",
+                stat_projects: "Pwojè konplete", stat_clients: "Kliyan kontan", stat_years: "Ane ekselans", stat_team: "Manm ekip",
+                portfolio_title: "Vitrin kreyatif", portfolio_sub: "Yon apèsi sou dènye majik nou — desen, 3D & atizana dijital",
+                gallery1: "Idantite Mak", gallery1_sub: "Sistèm idantite",
+                gallery2: "Mèb 3D", gallery2_sub: "Vizyalizasyon pwodwi",
+                gallery3: "Studio Wèb", gallery3_sub: "E-commerce mod",
+                gallery4: "App Finansyè", gallery4_sub: "UI/UX + dev",
+                gallery5: "Kanpay Sosyal", gallery5_sub: "Maketing dijital",
+                portfolio_cta: "→ Mandye pòtfolyo konplè",
+                testimonial_title: "Sa kliyan yo di", testimonial_sub: "Sèvi ak enèji pa kreyatè ak antrepriz atravè lemond",
+                testimonial1: "« Prime Creative te repanse tout idantite mak nou epi li te bati yon sit e-commerce wo pèfòmans. Vant yo te ogmante pa 140% nan 3 mwa. »",
+                author1: "— Sophia C.", role1: "Direktris Kreyatif, Lumina",
+                testimonial2: "« Vizyalizasyon 3D yo te sezi nou. Atansyon ekip la sou detay ak vitès se san parèy. Mwen rekòmande anpil pou nenpòt travay immersive. »",
+                author2: "— Marcus V.", role2: "Fondatè, ModaStudio",
+                testimonial3: "« Soti nan konsèp rive nan lansman, yo te livre yon aplikasyon finansyè san pwoblèm. Itilizatè yo renmen UI/UX la. Pwofesyonèl ak kreyatif — 10/10. »",
+                author3: "— Aisha K.", role3: "CTO, NimbusPay",
+                contact_title1: "Ann kreye yon bagay", contact_title2: "remakab",
+                contact_desc: "Ou gen yon pwojè nan tèt ou? Kit se yon refonte konplè mak, yon vizyèl 3D, oswa yon aplikasyon/sit konplèks — ann pale.",
+                contact_address: "Montagne Noire, PV - Remote",
+                contact_phone: "+(509) 3774-3116",
+                contact_email: "hello@myprimecreative.com",
+                form_name: "Non konplè", form_email: "Adrès imèl", form_message: "Pale nou de vizyon ou...", form_submit: "Voye demann lan →",
+                service_opt1: "Desen Grafik", service_opt2: "3D & Animasyon", service_opt3: "Devlopman Wèb & App", service_opt4: "Maketing Digital", service_opt5: "Lòt / pakè konplè",
+                footer_desc: "Desen, 3D, kòd — nou kreye ekselans dijital pou mak ki gade pou pi devan.",
+                footer_explore: "Eksplore", footer_services: "Sèvis", footer_portfolio: "Pòtfolyo", footer_careers: "Karyè",
+                footer_legal: "Legal", footer_privacy: "Konfidansyalite", footer_terms: "Kondisyon itilizasyon",
+                copyright: "© 2025 PRIME CREATIVE — Tout travay ak mak apatni a pwopriyetè respektif yo. Fabrike ak",
+                copyright_end: "pou lide odasye.",
+                portfolio_main_title: "Pòtfolyo <span>nou</span>",
+                portfolio_cat1_main: "Design &",
+                portfolio_cat1_sub: "Maketing",
+                portfolio_cat2_main: "Sit wèb",
+                portfolio_cat2_sub: "Kreyasyon",
+                portfolio_cat3_main: "App",
+                portfolio_cat3_sub: "Kreyasyon",
+                portfolio_slide1_title: "Chic Attire",
+                portfolio_slide1_category: "Logo · Design · Flyers",
+                portfolio_slide1_desc: "Nou espesyalize nan Kreyasyon Logo, Flyers, ak Solisyon Maketing Digital pou elve mak ou.",
+                portfolio_slide2_title: "Chic Attire",
+                portfolio_slide2_category: "Logo · Design · Flyers",
+                portfolio_slide2_desc: "Nou espesyalize nan Kreyasyon Logo, Flyers, ak Solisyon Maketing Digital pou elve mak ou.",
+                portfolio_slide3_title: "Jewelry by Genevieve",
+                portfolio_slide3_category: "Bijou · Design · Flyers",
+                portfolio_slide3_desc: "Nou espesyalize nan Kreyasyon Logo, Flyers, ak Solisyon Maketing Digital pou elve mak ou.",
+                portfolio_slide4_title: "Chic Attire",
+                portfolio_slide4_category: "Sit wèb · E-commerce",
+                portfolio_slide4_desc: "Sit e-commerce ki prezante koleksyon bijou. Gade demo an dirèk pou eksplore eksperyans konplè a.",
+                portfolio_slide5_title: "BIWI",
+                portfolio_slide5_category: "Sit wèb · E-commerce",
+                portfolio_slide5_desc: "Platfòm e-commerce BIWI – eksplore koleksyon nou an liy.",
+                portfolio_slide6_title: "Task",
+                portfolio_slide6_category: "App · Tach",
+                portfolio_slide6_desc: "Aplikasyon jesyon tach – òganize tach chak jou ou avèk efikasite ak yon koòdone pwòp ak entwitif.",
+                portfolio_slide7_title: "Booking",
+                portfolio_slide7_category: "App · Rezèvasyon",
+                portfolio_slide7_desc: "Aplikasyon rezèvasyon – rezève fasilman randevou, sèvis ak rezèvasyon ak yon eksperyans san pwoblèm."
+            }
+        };
+
+        window.translations = translations;
+
+        // ── Chat translations ──
+        const chatTranslations = {
+            en: {
+                greeting: "👋 Hi there! I'm Prime AI — your creative assistant. Ask me about our services, pricing, portfolio, or anything else!",
+                quickReplies: [
+                    { text: "📐 Services", value: "What services do you offer?" },
+                    { text: "💰 Pricing", value: "How much does a project cost?" },
+                    { text: "🎨 Portfolio", value: "Can I see your portfolio?" },
+                    { text: "🚀 Start", value: "How do I start a project?" },
+                    { text: "💬 WhatsApp", value: "I want to speak with a real person" }
+                ],
+                headerTitle: "Prime AI Assistant",
+                headerStatus: "Online · ready to help",
+                placeholder: "Type your message…",
+                responses: {
+                    services: "We offer 4 core services:\n• 🎨 Graphic Design — branding, print, social visuals\n• 🧊 3D & Motion — modeling, rendering, animation\n• 💻 Web & App Dev — full-stack, e‑commerce, cross-platform apps\n• 📈 Digital Marketing — SEO, social, ads, strategy\nWhich one interests you most?",
+                    graphic: "🎨 Our graphic design team crafts stunning logos, brand identities, packaging, and social media visuals. We create cohesive visual languages that make brands unforgettable. Want to see some examples?",
+                    threeD: "🧊 Our 3D & Motion studio delivers high-end modeling, product visualization, architectural rendering, and animation. We bring concepts to life with depth and realism. Got a project in mind?",
+                    web: "💻 We build custom websites, e‑commerce platforms, CMS solutions, full‑stack apps, and cross-platform mobile apps (iOS, Android, Flutter, React Native). From MVP to polished product — we've got you covered!",
+                    marketing: "📈 Our digital marketing team boosts your online presence with SEO, social media management, content strategy, paid ads, and analytics. We turn leads into loyal customers. Ready to grow?",
+                    pricing: "💰 Pricing varies by scope:\n• Logo design: starts at $200\n• Full brand package (logo + business card + badge + etc.): $500\n• Website/App: custom, starting from $1k up to $50k+\n• Digital Marketing: starts at $200/month\nWant a custom quote? Tell me more about your project!",
+                    portfolio: "🎨 You can check out our portfolio section on this page! We've done brand identities, 3D furniture renders, fashion e‑commerce sites, fintech apps, and social campaigns. I can also share more tailored examples — what type of work are you looking for?",
+                    start: "🚀 Starting a project is easy! 1️⃣ Reach out via the contact form or email us at hello@myprimecreative.com. 2️⃣ We'll schedule a discovery call to understand your vision. 3️⃣ We'll send a proposal with timeline and pricing. 4️⃣ Once approved, we bring your idea to life! Ready to take the first step?",
+                    team: "🌟 Prime Creative is a team of designers, 3D artists, developers, and marketing strategists. We've been crafting digital excellence for 6+ years, serving clients from startups to global brands. We're passionate about turning bold ideas into reality!",
+                    contact: "📬 You can reach us at hello@myprimecreative.com or call +(509) 3774-3116. We're based in Montagne Noire, PV - Remote, but we work remotely with clients worldwide. Use the contact form on this page — we'll reply within 24h!",
+                    thank: "You're welcome! 🙌 I'm here whenever you need me. Anything else I can help with?",
+                    bye: "Goodbye for now! 👋 Feel free to come back anytime if you have more questions. Have a great day!",
+                    whatsapp: "📱 You can speak with a real customer support agent directly on WhatsApp. Click this link to start a chat: https://wa.me/message/TWWSM72QHJJ4B1",
+                    default: "🤔 Hmm, I'm not sure I understand. Could you rephrase? I can help with services, pricing, portfolio, or starting a project. Or just say 'hello' to chat!"
+                }
+            },
+            fr: {
+                greeting: "👋 Bonjour ! Je suis Prime AI — votre assistant créatif. Demandez-moi tout sur nos services, nos prix, notre portfolio ou autre chose !",
+                quickReplies: [
+                    { text: "📐 Services", value: "Quels services proposez-vous ?" },
+                    { text: "💰 Tarifs", value: "Combien coûte un projet ?" },
+                    { text: "🎨 Portfolio", value: "Puis-je voir votre portfolio ?" },
+                    { text: "🚀 Démarrer", value: "Comment démarrer un projet ?" },
+                    { text: "💬 WhatsApp", value: "Je veux parler à une vraie personne" }
+                ],
+                headerTitle: "Assistant Prime AI",
+                headerStatus: "En ligne · prêt à aider",
+                placeholder: "Écrivez votre message…",
+                responses: {
+                    services: "Nous offrons 4 services principaux :\n• 🎨 Design Graphique — branding, print, visuels sociaux\n• 🧊 3D & Animation — modélisation, rendu, animation\n• 💻 Dev Web & App — full-stack, e‑commerce, apps cross-platform\n• 📈 Marketing Digital — SEO, réseaux sociaux, publicité, stratégie\nLequel vous intéresse le plus ?",
+                    graphic: "🎨 Notre équipe de design graphique crée des logos, identités de marque, emballages et visuels sociaux époustouflants. Nous créons des langages visuels cohérents qui rendent les marques inoubliables. Vous voulez voir des exemples ?",
+                    threeD: "🧊 Notre studio 3D & Animation propose de la modélisation haut de gamme, visualisation de produits, rendu architectural et animation. Nous donnons vie aux concepts avec profondeur et réalisme. Vous avez un projet en tête ?",
+                    web: "💻 Nous construisons des sites web sur mesure, des plateformes e‑commerce, des solutions CMS, des applications full‑stack et des applications mobiles cross-platform (iOS, Android, Flutter, React Native). Du MVP au produit fini — nous vous couvrons !",
+                    marketing: "📈 Notre équipe de marketing digital booste votre présence en ligne avec le SEO, la gestion des réseaux sociaux, la stratégie de contenu, les publicités payantes et l'analyse. Nous transformons les prospects en clients fidèles. Prêt à grandir ?",
+                    pricing: "💰 Les tarifs varient selon le périmètre :\n• Création de logo : à partir de 200 $\n• Pack complet (logo + carte de visite + badge + etc.) : 500 $\n• Site web/App : sur mesure, de 1 000 $ à 50 000 $+\n• Marketing Digital : à partir de 200 $/mois\nVous voulez un devis personnalisé ? Parlez-moi de votre projet !",
+                    portfolio: "🎨 Vous pouvez consulter notre section portfolio sur cette page ! Nous avons réalisé des identités de marque, des rendus 3D de meubles, des sites e‑commerce de mode, des applications fintech et des campagnes sociales. Je peux aussi vous montrer des exemples plus ciblés — quel type de travail cherchez-vous ?",
+                    start: "🚀 Démarrer un projet est facile ! 1️⃣ Contactez-nous via le formulaire ou par email à hello@myprimecreative.com. 2️⃣ Nous planifions un appel de découverte pour comprendre votre vision. 3️⃣ Nous vous envoyons une proposition avec calendrier et tarifs. 4️⃣ Une fois approuvé, nous donnons vie à votre idée ! Prêt à faire le premier pas ?",
+                    team: "🌟 Prime Creative est une équipe de designers, d'artistes 3D, de développeurs et de stratèges marketing. Nous créons l'excellence numérique depuis plus de 6 ans, au service de clients allant des start-ups aux marques mondiales. Nous sommes passionnés par la transformation d'idées audacieuses en réalité !",
+                    contact: "📬 Vous pouvez nous joindre à hello@myprimecreative.com ou au +(509) 3774-3116. Nous sommes basés à Montagne Noire, PV - Remote, mais nous travaillons à distance avec des clients du monde entier. Utilisez le formulaire de contact sur cette page — nous répondons sous 24h !",
+                    thank: "De rien ! 🙌 Je suis là quand vous avez besoin de moi. Autre chose ?",
+                    bye: "Au revoir pour l'instant ! 👋 N'hésitez pas à revenir quand vous voulez si vous avez d'autres questions. Bonne journée !",
+                    whatsapp: "📱 Vous pouvez parler directement avec un agent du support client sur WhatsApp. Cliquez sur ce lien pour démarrer une conversation : https://wa.me/message/TWWSM72QHJJ4B1",
+                    default: "🤔 Hmm, je ne suis pas sûr de comprendre. Pouvez-vous reformuler ? Je peux vous aider sur les services, les prix, le portfolio ou le démarrage d'un projet. Ou dites simplement 'bonjour' pour discuter !"
+                }
+            },
+            ht: {
+                greeting: "👋 Bonjou! Mwen se Prime AI — asistan kreyatif ou. Mande m' tout sa w vle konnen sou sèvis nou, pri, pòtfolyo, oswa nenpòt lòt bagay!",
+                quickReplies: [
+                    { text: "📐 Sèvis", value: "Ki sèvis ou ofri?" },
+                    { text: "💰 Pri", value: "Konbyen yon pwojè koute?" },
+                    { text: "🎨 Pòtfolyo", value: "Eske mwen ka wè pòtfolyo ou?" },
+                    { text: "🚀 Kòmanse", value: "Kòman pou m kòmanse yon pwojè?" },
+                    { text: "💬 WhatsApp", value: "Mwen vle pale ak yon moun reyèl" }
+                ],
+                headerTitle: "Asistan Prime AI",
+                headerStatus: "An liy · pare pou ede",
+                placeholder: "Mete mesaj ou…",
+                responses: {
+                    services: "Nou ofri 4 sèvis prensipal:\n• 🎨 Desen Grafik — branding, enprime, vizyèl sosyal\n• 🧊 3D & Animasyon — modèl, rann, animasyon\n• 💻 Dev Wèb & App — full-stack, e-commerce, apps cross-platform\n• 📈 Maketing Digital — SEO, rezo sosyal, piblisite, estrateji\nKilès ki enterese ou plis?",
+                    graphic: "🎨 Ekip desen grafik nou kreye logo, idantite mak, anbalaj, ak vizyèl rezo sosyal ki estrawòdinè. Nou kreye lang vizyèl koyeran ki fè mak yo inoubliyab. Ou vle wè kèk egzanp?",
+                    threeD: "🧊 Studio 3D & Animasyon nou ofri modèl wo nivo, vizyalizasyon pwodwi, rann achitekti, ak animasyon. Nou pote konsèp yo nan lavi ak pwofondè ak reyalis. Ou gen yon pwojè nan tèt ou?",
+                    web: "💻 Nou bati sit wèb pèsonalize, platfòm e-commerce, solisyon CMS, apps full-stack, ak apps mobil cross-platform (iOS, Android, Flutter, React Native). Soti nan MVP rive nan pwodwi fini — nou kouvri tout!",
+                    marketing: "📈 Ekip maketing dijital nou ogmante prezans ou sou entènèt ak SEO, jesyon rezo sosyal, estrateji kontni, piblisite peye, ak analiz. Nou konvèti leads an kliyan fidèl. Ou pare pou grandi?",
+                    pricing: "💰 Pri yo varye selon pwojè a:\n• Kreyasyon logo: kòmanse nan $200\n• Pakè konplè (logo + kat biznis + badj + elatriye): $500\n• Sit wèb/App: sou mezi, soti nan $1,000 rive $50,000+\n• Maketing Digital: kòmanse nan $200/mwa\nOu vle yon estimasyon pèsonalize? Di m plis sou pwojè ou!",
+                    portfolio: "🎨 Ou ka gade seksyon pòtfolyo nou sou paj sa! Nou te fè idantite mak, rann 3D mèb, sit e-commerce mòd, apps finansyè, ak kanpay sosyal. Mwen ka pataje plis egzanp adapte — ki kalite travay w ap chèche?",
+                    start: "🚀 Kòmanse yon pwojè fasil! 1️⃣ Kontakte nou via fòmilè a oswa imèl hello@myprimecreative.com. 2️⃣ Nou pran yon apèl dekouvèt pou konprann vizyon ou. 3️⃣ Nou voye yon pwopozisyon ak delè ak pri. 4️⃣ Yon fwa apwouve, nou bay lide ou lavi! Ou pare pou premye etap la?",
+                    team: "🌟 Prime Creative se yon ekip designer, atis 3D, developè, ak estratejis maketing. Nou kree ekselans dijital depi plis pase 6 an, pou kliyan ki soti nan start-up rive nan mak mondyal. Nou pasyone pou fè lide odasye vin reyalite!",
+                    contact: "📬 Ou ka kontakte nou nan hello@myprimecreative.com oswa +(509) 3774-3116. Nou baze nan Montagne Noire, PV - Remote, men nou travay aleka ak kliyan atravè lemond. Sèvi ak fòmilè kontak sou paj sa — nou reponn nan lespas 24h!",
+                    thank: "Padekoua! 🙌 Mwen la chak fwa ou bezwen mwen. Yon lòt bagay?",
+                    bye: "Orevwa pou kounye a! 👋 Ou lib pou retounen nenpòt lè si w gen plis kesyon. Pase yon bon jounen!",
+                    whatsapp: "📱 Ou ka pale dirèkteman ak yon ajan sipò kliyan sou WhatsApp. Klike sou lyen sa a pou kòmanse yon konvèsasyon: https://wa.me/message/TWWSM72QHJJ4B1",
+                    default: "🤔 Hmm, mwen pa konprann byen. Èske ou ka repete? Mwen kapab ede w sou sèvis, pri, pòtfolyo, oswa kòmanse yon pwojè. Oswa jis di 'bonjou' pou pale!"
+                }
+            }
+        };
+
+        let currentLang = 'en';
+
+        function applyLanguage(lang) {
+            if (!translations[lang]) return;
+            document.querySelectorAll('[data-translate]').forEach(el => {
+                const key = el.getAttribute('data-translate');
+                if (translations[lang][key] !== undefined) {
+                    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA' || el.tagName === 'SELECT') {} else {
+                        el.innerHTML = translations[lang][key];
+                    }
+                }
+            });
+            document.querySelectorAll('[data-translate-placeholder]').forEach(el => {
+                const key = el.getAttribute('data-translate-placeholder');
+                if (translations[lang][key] !== undefined) el.placeholder = translations[lang][key];
+            });
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+            });
+            currentLang = lang;
+            updateChatLanguage(lang);
+            if (typeof window.updateSlideshowTranslations === 'function') {
+                window.updateSlideshowTranslations(lang);
+            }
+        }
+
+        function updateChatLanguage(lang) {
+            const t = chatTranslations[lang] || chatTranslations.en;
+            document.getElementById('chatHeaderTitle').textContent = t.headerTitle;
+            document.getElementById('chatHeaderStatus').textContent = t.headerStatus;
+            document.getElementById('chatInput').placeholder = t.placeholder;
+            const container = document.getElementById('quickReplies');
+            container.innerHTML = '';
+            t.quickReplies.forEach(q => {
+                const btn = document.createElement('button');
+                btn.className = 'quick-reply-btn';
+                if (q.text.includes('WhatsApp')) btn.classList.add('whatsapp-btn');
+                btn.textContent = q.text;
+                btn.setAttribute('data-text', q.value);
+                container.appendChild(btn);
+            });
+            const msgs = document.getElementById('chatMessages');
+            const firstMsg = msgs.querySelector('.msg.bot');
+            if (firstMsg && msgs.children.length === 1) {
+                firstMsg.innerHTML = t.greeting + ' <span class="msg-time">' + new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) + '</span>';
+            }
+            document.querySelectorAll('#chatLangPicker button').forEach(btn => {
+                btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+            });
+        }
+
+        function getChatResponse(text, lang) {
+            const t = chatTranslations[lang] || chatTranslations.en;
+            const lower = text.toLowerCase();
+            if (lower.includes('whatsapp') || lower.includes('real person') || lower.includes('speak with a real') ||
+                lower.includes('pale ak yon moun') || lower.includes('parler à une vraie personne')) {
+                return t.responses.whatsapp;
+            }
+            if (lower.includes('service') || lower.includes('offer') || lower.includes('do you do') || lower.includes('what can you') || lower.includes('capabilities') ||
+                lower.includes('sèvis') || lower.includes('ofri') || lower.includes('services') || lower.includes('proposez')) {
+                return t.responses.services;
+            }
+            if (lower.includes('graphic') || lower.includes('logo') || lower.includes('brand') || lower.includes('identity') || lower.includes('print') || lower.includes('packaging') ||
+                lower.includes('desen') || lower.includes('idantite') || lower.includes('design') || lower.includes('identité')) {
+                return t.responses.graphic;
+            }
+            if (lower.includes('3d') || lower.includes('model') || lower.includes('render') || lower.includes('motion') || lower.includes('animation') || lower.includes('visualization') ||
+                lower.includes('modèl') || lower.includes('rann') || lower.includes('animasyon')) {
+                return t.responses.threeD;
+            }
+            if (lower.includes('web') || lower.includes('app') || lower.includes('website') || lower.includes('ecommerce') || lower.includes('e-commerce') || lower.includes('cms') || lower.includes('full-stack') || lower.includes('mobile') ||
+                lower.includes('sit wèb') || lower.includes('devlopman') || lower.includes('site web')) {
+                return t.responses.web;
+            }
+            if (lower.includes('marketing') || lower.includes('seo') || lower.includes('social media') || lower.includes('ads') || lower.includes('analytics') || lower.includes('content') ||
+                lower.includes('maketing') || lower.includes('digital') || lower.includes('réseaux')) {
+                return t.responses.marketing;
+            }
+            if (lower.includes('price') || lower.includes('cost') || lower.includes('how much') || lower.includes('quote') || lower.includes('budget') || lower.includes('pricing') || lower.includes('affordable') ||
+                lower.includes('pri') || lower.includes('koute') || lower.includes('tarifs') || lower.includes('combien')) {
+                return t.responses.pricing;
+            }
+            if (lower.includes('portfolio') || lower.includes('examples') || lower.includes('work') || lower.includes('showcase') || lower.includes('past project') || lower.includes('gallery') ||
+                lower.includes('pòtfolyo') || lower.includes('travay') || lower.includes('exemples')) {
+                return t.responses.portfolio;
+            }
+            if (lower.includes('start') || lower.includes('begin') || lower.includes('how to') || lower.includes('process') || lower.includes('project') || lower.includes('engage') || lower.includes('hire') ||
+                lower.includes('kòmanse') || lower.includes('démarrer') || lower.includes('comment')) {
+                return t.responses.start;
+            }
+            if (lower.includes('team') || lower.includes('about') || lower.includes('company') || lower.includes('who are you') || lower.includes('experience') ||
+                lower.includes('ekip') || lower.includes('sou') || lower.includes('équipe')) {
+                return t.responses.team;
+            }
+            if (lower.includes('contact') || lower.includes('email') || lower.includes('phone') || lower.includes('reach') || lower.includes('address') ||
+                lower.includes('kontak') || lower.includes('imèl') || lower.includes('téléphone')) {
+                return t.responses.contact;
+            }
+            if (lower.includes('thank') || lower.includes('thanks') || lower.includes('appreciate') || lower.includes('grateful') ||
+                lower.includes('mèsi') || lower.includes('merci')) {
+                return t.responses.thank;
+            }
+            if (lower.includes('bye') || lower.includes('goodbye') || lower.includes('see you') || lower.includes('later') || lower.includes('ciao') ||
+                lower.includes('orevwa') || lower.includes('au revoir')) {
+                return t.responses.bye;
+            }
+            return t.responses.default;
+        }
+
+        // ── Chat DOM refs ──
+        const chatToggle = document.getElementById('chatToggle');
+        const chatWindow = document.getElementById('chatWindow');
+        const chatCloseBtn = document.getElementById('chatCloseBtn');
+        const chatMessages = document.getElementById('chatMessages');
+        const chatInput = document.getElementById('chatInput');
+        const chatSendBtn = document.getElementById('chatSendBtn');
+        const quickReplies = document.getElementById('quickReplies');
+        const settingsBtn = document.getElementById('chatSettingsBtn');
+        const settingsOverlay = document.getElementById('chatSettingsOverlay');
+        const settingsCancel = document.getElementById('settingsCancel');
+        const settingsSave = document.getElementById('settingsSave');
+        const apiKeyInput = document.getElementById('apiKeyInput');
+        const modelSelect = document.getElementById('modelSelect');
+        const chatLangPicker = document.getElementById('chatLangPicker');
+
+        let isOpen = false, isProcessing = false, useAPI = false;
+        let apiKey = localStorage.getItem('prime_chat_api_key') || '';
+        let selectedModel = localStorage.getItem('prime_chat_model') || 'google/gemini-2.0-flash-exp:free';
+        if (apiKey) { apiKeyInput.value = apiKey; useAPI = true; }
+        modelSelect.value = selectedModel;
+
+        chatLangPicker.addEventListener('click', (e) => {
+            const btn = e.target.closest('button');
+            if (!btn) return;
+            const lang = btn.getAttribute('data-lang');
+            chatLangPicker.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            applyLanguage(lang);
+            const langName = { en: 'English', fr: 'French', ht: 'Kreyol' } [lang];
+            addMessage(`🌐 Language switched to ${langName}. How can I help you?`, 'bot');
+        });
+
+        function addMessage(text, sender, time) {
+            const div = document.createElement('div');
+            div.className = `msg ${sender}`;
+            if (sender === 'bot' && text === 'typing') {
+                div.innerHTML = `<div class="msg-typing"><span></span><span></span><span></span></div>`;
+                div.id = 'typingIndicator';
+            } else {
+                div.textContent = text;
+                const span = document.createElement('span');
+                span.className = 'msg-time';
+                span.textContent = time || new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                div.appendChild(span);
+            }
+            chatMessages.appendChild(div);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function removeTyping() {
+            const typing = document.getElementById('typingIndicator');
+            if (typing) typing.remove();
+        }
+
+        async function sendMessage(text) {
+            if (!text.trim() || isProcessing) return;
+            isProcessing = true;
+            chatSendBtn.disabled = true;
+            addMessage(text.trim(), 'user');
+            chatInput.value = '';
+            chatInput.style.height = 'auto';
+            addMessage('typing', 'bot');
+            try {
+                let reply;
+                if (useAPI && apiKey) {
+                    const lang = currentLang;
+                    const systemPrompt = `You are Prime AI, a friendly assistant for Prime Creative. 
+                    Respond in ${lang === 'fr' ? 'French' : lang === 'ht' ? 'Haitian Creole' : 'English'}.
+                    Keep responses concise (2-4 sentences). 
+                    If asked about pricing: logo $200, full package $500, website/app starts at $1k to $50k+, marketing starts at $200.
+                    If asked about WhatsApp, direct them to https://wa.me/message/TWWSM72QHJJ4B1.
+                    Be warm and professional.`;
+                    reply = await callOpenRouter(text, systemPrompt);
+                } else {
+                    await new Promise(r => setTimeout(r, 400 + Math.random() * 600));
+                    reply = getChatResponse(text, currentLang);
+                }
+                removeTyping();
+                addMessage(reply, 'bot');
+            } catch (err) {
+                removeTyping();
+                const fallback = getChatResponse(text, currentLang);
+                addMessage("⚠️ Oops, something went wrong. I'll fall back to my built-in knowledge. " + fallback, 'bot');
+                console.error('Chat error:', err);
+            }
+            isProcessing = false;
+            chatSendBtn.disabled = false;
+            chatInput.focus();
+        }
+
+        async function callOpenRouter(text, systemPrompt) {
+            const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${apiKey}` },
+                body: JSON.stringify({
+                    model: selectedModel,
+                    messages: [{ role: 'system', content: systemPrompt }, { role: 'user', content: text }],
+                    temperature: 0.7,
+                    max_tokens: 200,
+                })
+            });
+            if (!response.ok) { const err = await response.text(); throw new Error(`API error ${response.status}: ${err}`); }
+            const data = await response.json();
+            return data.choices?.[0]?.message?.content?.trim() || "Hmm, I didn't get a proper response. Let me try again — what can I help you with?";
+        }
+
+        function toggleChat(open) {
+            isOpen = (open !== undefined) ? open : !isOpen;
+            chatWindow.classList.toggle('open', isOpen);
+            if (isOpen) chatInput.focus();
+        }
+        chatToggle.addEventListener('click', () => toggleChat());
+        chatCloseBtn.addEventListener('click', () => toggleChat(false));
+
+        chatSendBtn.addEventListener('click', () => sendMessage(chatInput.value));
+        chatInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(chatInput.value); }
+        });
+        chatInput.addEventListener('input', () => {
+            chatInput.style.height = 'auto';
+            chatInput.style.height = Math.min(chatInput.scrollHeight, 100) + 'px';
+        });
+
+        quickReplies.addEventListener('click', (e) => {
+            const btn = e.target.closest('.quick-reply-btn');
+            if (btn) { const text = btn.getAttribute('data-text'); if (text) sendMessage(text); }
+        });
+
+        settingsBtn.addEventListener('click', () => { settingsOverlay.classList.add('open'); apiKeyInput.value = apiKey;
+            modelSelect.value = selectedModel; });
+        settingsCancel.addEventListener('click', () => { settingsOverlay.classList.remove('open'); });
+        settingsOverlay.addEventListener('click', (e) => { if (e.target === settingsOverlay) settingsOverlay.classList.remove(
+                'open'); });
+        settingsSave.addEventListener('click', () => {
+            const key = apiKeyInput.value.trim();
+            apiKey = key; useAPI = !!key;
+            localStorage.setItem('prime_chat_api_key', key);
+            selectedModel = modelSelect.value;
+            localStorage.setItem('prime_chat_model', selectedModel);
+            settingsOverlay.classList.remove('open');
+            addMessage(useAPI ? "🔌 AI mode enabled! I'll now use real AI for smarter responses." :
+                "🧠 Switched to built-in assistant mode. I'll still answer all your questions!", 'bot');
+        });
+
+        document.addEventListener('click', (e) => {
+            const widget = document.getElementById('chatWidget');
+            if (isOpen && widget && !widget.contains(e.target) && e.target !== chatToggle) {
+                if (settingsOverlay.classList.contains('open')) return;
+                toggleChat(false);
+            }
+        });
+
+        // ── Init chat ──
+        applyLanguage('en');
+        const initialGreeting = chatTranslations.en.greeting;
+        const msgDiv = document.createElement('div');
+        msgDiv.className = 'msg bot';
+        msgDiv.innerHTML = initialGreeting + ' <span class="msg-time">' + new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) + '</span>';
+        chatMessages.appendChild(msgDiv);
+
+        // ── Main page language picker ──
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                const lang = this.getAttribute('data-lang');
+                applyLanguage(lang);
+                document.querySelectorAll('#chatLangPicker button').forEach(b => {
+                    b.classList.toggle('active', b.getAttribute('data-lang') === lang);
+                });
+            });
+        });
+
+        // ── Mobile sub-menu toggle (prevent navigation) ──
+        document.querySelectorAll('.nav-item-with-sub > a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const nav = document.getElementById('navLinks');
+                // Only prevent navigation on mobile (when nav-links is fixed)
+                if (window.getComputedStyle(nav).position === 'fixed') {
+                    e.preventDefault();
+                    const parent = this.parentElement;
+                    parent.classList.toggle('open');
+                }
+                // On desktop, we want the hover to work, so we don't prevent default
+                // The href="#" will just scroll to top, which is fine on desktop
+            });
+        });
+
+        // Close mobile menu when clicking a sub-link
+        document.querySelectorAll('.sub-menu a').forEach(subLink => {
+            subLink.addEventListener('click', function(e) {
+                const nav = document.getElementById('navLinks');
+                if (nav.classList.contains('open')) {
+                    setTimeout(() => {
+                        nav.classList.remove('open');
+                    }, 200);
+                }
+            });
+        });
+
+        // ── Back to top ──
+        const backBtn = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => backBtn.classList.toggle('show', window.scrollY > 400));
+        backBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        // ── Mobile menu toggle ──
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        menuToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+        document.addEventListener('click', (e) => {
+            if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) navLinks.classList.remove('open');
+        });
+
+        // ── Dark mode ──
+        const darkToggle = document.getElementById('darkModeToggle');
+        if (localStorage.getItem('theme') === 'dark') document.body.classList.add('dark');
+        darkToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark');
+            localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+            darkToggle.innerHTML = document.body.classList.contains('dark') ? '<i class="fas fa-sun"></i> <span>Light</span>' :
+                '<i class="fas fa-moon"></i> <span>Dark</span>';
+        });
+
+        // ── Scroll reveal ──
+        document.querySelectorAll('.fade-up').forEach(el => {
+            new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('revealed');
+                        obs.unobserve(entry.target); } });
+            }, { threshold: 0.1 }).observe(el);
+        });
+
+        // ── Stats counter ──
+        let counted = false;
+        const statNumbers = document.querySelectorAll('.stat-number');
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !counted) {
+                    counted = true;
+                    statNumbers.forEach(stat => {
+                        const target = parseInt(stat.getAttribute('data-target'));
+                        const hasPlus = stat.getAttribute('data-plus') === 'true';
+                        let current = 0;
+                        const increment = target / 60;
+                        const update = () => {
+                            current += increment;
+                            if (current < target) {
+                                stat.innerText = Math.floor(current);
+                                requestAnimationFrame(update);
+                            } else {
+                                stat.innerText = target + (hasPlus ? '+' : '');
+                            }
+                        };
+                        update();
+                    });
+                    statsObserver.disconnect();
+                }
+            });
+        }, { threshold: 0.3 });
+        const statsContainer = document.getElementById('statsContainer');
+        if (statsContainer) statsObserver.observe(statsContainer);
+
+        // ── Form handler ──
+        const form = document.getElementById('inquiryForm');
+        const feedback = document.getElementById('formFeedback');
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name')?.value.trim();
+            const email = document.getElementById('email')?.value.trim();
+            const service = document.getElementById('serviceInterest')?.value;
+            const message = document.getElementById('message')?.value.trim();
+            if (!name || !email) {
+                feedback.textContent = '❌ Please fill name and email.';
+                feedback.style.color = '#e11d48';
+                return;
+            }
+            if (!email.includes('@')) {
+                feedback.textContent = '❌ Valid email required.';
+                feedback.style.color = '#e11d48';
+                return;
+            }
+            const subject = `New inquiry from ${name}`;
+            const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0AService: ${service}%0D%0AMessage: ${message || 'No message provided.'}`;
+            window.location.href = `mailto:hello@myprimecreative.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+            feedback.innerHTML = '✨ Your inquiry has been sent! We\'ll reply within 24h.';
+            feedback.style.color = '#10b981';
+            form.reset();
+            setTimeout(() => feedback.textContent = '', 4000);
+        });
+
+        // ── Smooth scroll ──
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === "#" || targetId === "") return;
+                const target = document.querySelector(targetId);
+                if (target) {
+                    e.preventDefault();
+                    if (navLinks.classList.contains('open')) navLinks.classList.remove('open');
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // ── Force page to top on load ──
+        window.addEventListener('load', function() {
+            if (window.location.hash) {
+                history.replaceState(null, '', window.location.pathname + window.location.search);
+            }
+            window.scrollTo(0, 0);
+        });
+
+        console.log('🚀 Prime Creative — fully loaded.');
     </script>
 
-    <!-- ─── PORTFOLIO SLIDESHOW SCRIPT (with translations support) ─── -->
+    <!-- ─── PORTFOLIO SLIDESHOW SCRIPT ─── -->
     <script>
         (function() {
-            // ================================================================
-            //  DATA — Base slide data (images and links stay the same)
-            // ================================================================
             const basePictures = [{
                 id: 1,
                 url: 'https://i.imgur.com/vdpaSuo.jpeg',
@@ -1616,9 +1606,6 @@
                 year: '2025'
             }];
 
-            // ================================================================
-            //  STATE & DOM REFS
-            // ================================================================
             let currentIndex = 0;
             let slideInterval = null;
             let progressRAF = null;
@@ -1636,7 +1623,6 @@
             const thumbnailStrip = document.getElementById('thumbnailStrip');
             const progressBar = document.getElementById('progressBar');
 
-            // Lightbox refs
             const lightboxOverlay = document.getElementById('lightboxOverlay');
             const lightboxImg = document.getElementById('lightboxImg');
             const lightboxTitle = document.getElementById('lightboxTitle');
@@ -1653,17 +1639,10 @@
             const catWebsite = document.getElementById('cat-website');
             const catApp = document.getElementById('cat-app');
 
-            // ================================================================
-            //  HELPER: Get translated picture data
-            // ================================================================
             function getTranslatedPictures(lang) {
                 const t = window.translations ? window.translations[lang] : null;
-                if (!t) return basePictures.map(p => ({
-                    ...p,
-                    title: p.titleKey,
-                    category: p.categoryKey,
-                    description: p.descKey
-                }));
+                if (!t) return basePictures.map(p => ({ ...p, title: p.titleKey, category: p.categoryKey, description: p
+                        .descKey }));
                 return basePictures.map(p => ({
                     ...p,
                     title: t[p.titleKey] || p.titleKey,
@@ -1672,9 +1651,6 @@
                 }));
             }
 
-            // ================================================================
-            //  PROGRESS BAR
-            // ================================================================
             function startProgress() {
                 if (progressRAF) cancelAnimationFrame(progressRAF);
                 progressStartTime = performance.now();
@@ -1702,9 +1678,6 @@
                 progressBar.style.width = '100%';
             }
 
-            // ================================================================
-            //  RENDER
-            // ================================================================
             function renderSlides(lang) {
                 const pictures = getTranslatedPictures(lang);
                 let slidesHTML = '';
@@ -1734,8 +1707,11 @@
 
                 document.querySelectorAll('.slide').forEach((slide) => {
                     slide.addEventListener('click', (e) => {
-                        const idx = parseInt(slide.dataset.index, 10);
-                        openLightbox(idx);
+                        if (!window.hasDragged) {
+                            const idx = parseInt(slide.dataset.index, 10);
+                            openLightbox(idx);
+                        }
+                        window.hasDragged = false;
                     });
                 });
 
@@ -1758,9 +1734,6 @@
                 updateSlides(0, lang);
             }
 
-            // ================================================================
-            //  UPDATE SLIDES
-            // ================================================================
             function updateSlides(index, lang) {
                 const pictures = getTranslatedPictures(lang);
                 const total = pictures.length;
@@ -1832,9 +1805,6 @@
 
             function prevSlide() { goToSlide(currentIndex - 1); }
 
-            // ================================================================
-            //  CATEGORY CLICK
-            // ================================================================
             catDesign.addEventListener('click', () => { goToSlide(0);
                 resetAutoPlay(); });
             catWebsite.addEventListener('click', () => { goToSlide(3);
@@ -1842,9 +1812,6 @@
             catApp.addEventListener('click', () => { goToSlide(5);
                 resetAutoPlay(); });
 
-            // ================================================================
-            //  FULLSCREEN
-            // ================================================================
             function toggleFullscreen() {
                 if (!document.fullscreenElement) {
                     document.documentElement.requestFullscreen().catch(err => {});
@@ -1858,9 +1825,6 @@
                     toggleFullscreen(); }
             });
 
-            // ================================================================
-            //  LIGHTBOX
-            // ================================================================
             function openLightbox(index) {
                 const pictures = getTranslatedPictures(currentLang);
                 const pic = pictures[index];
@@ -1932,9 +1896,6 @@
                 if (e.key === 'ArrowRight') navigateLightbox(1);
             });
 
-            // ================================================================
-            //  AUTOPLAY
-            // ================================================================
             function startAutoPlay() {
                 if (slideInterval) clearInterval(slideInterval);
                 slideInterval = setInterval(() => { nextSlide(); }, SLIDE_DELAY);
@@ -1947,12 +1908,10 @@
                 startAutoPlay();
             }
 
-            // ================================================================
-            //  SWIPE
-            // ================================================================
             let touchStartX = 0,
                 touchStartY = 0,
                 isSwiping = false;
+            window.hasDragged = false;
 
             viewport.addEventListener('touchstart', (e) => {
                 const touch = e.touches[0];
@@ -1988,9 +1947,43 @@
                 }
             }, { passive: true });
 
-            // ================================================================
-            //  NAV BUTTONS
-            // ================================================================
+            viewport.addEventListener('mousedown', (e) => {
+                window.isDragging = true;
+                window.startX = e.clientX;
+                window.startY = e.clientY;
+                window.hasDragged = false;
+                viewport.style.cursor = 'grabbing';
+                if (slideInterval) { clearInterval(slideInterval);
+                    slideInterval = null; }
+                e.preventDefault();
+            });
+
+            document.addEventListener('mousemove', (e) => {
+                if (!window.isDragging) return;
+                const deltaX = e.clientX - window.startX;
+                const deltaY = e.clientY - window.startY;
+                if (Math.abs(deltaX) > 10 || Math.abs(deltaY) > 10) {
+                    window.hasDragged = true;
+                }
+            });
+
+            document.addEventListener('mouseup', (e) => {
+                if (!window.isDragging) return;
+                window.isDragging = false;
+                viewport.style.cursor = 'grab';
+                const deltaX = e.clientX - window.startX;
+                const deltaY = e.clientY - window.startY;
+                const threshold = 50;
+                if (Math.abs(deltaX) > threshold && Math.abs(deltaX) > Math.abs(deltaY) * 1.5) {
+                    if (deltaX < 0) { nextSlide(); } else { prevSlide(); }
+                    resetAutoPlay();
+                } else {
+                    if (!lightboxOverlay.classList.contains('open')) { startAutoPlay(); }
+                }
+            });
+
+            viewport.addEventListener('contextmenu', (e) => e.preventDefault());
+
             prevBtn.addEventListener('click', () => { prevSlide();
                 resetAutoPlay(); });
             nextBtn.addEventListener('click', () => { nextSlide();
@@ -2016,18 +2009,12 @@
                 if (!lightboxOverlay.classList.contains('open')) { startAutoPlay(); }
             });
 
-            // ================================================================
-            //  PUBLIC API for language update
-            // ================================================================
             window.updateSlideshowTranslations = function(lang) {
                 currentLang = lang;
                 renderSlides(lang);
                 resetAutoPlay();
             };
 
-            // ================================================================
-            //  INIT
-            // ================================================================
             currentLang = 'en';
             renderSlides('en');
             startAutoPlay();
@@ -2035,4 +2022,4 @@
     </script>
 
 </body>
-                                                                                                                                           </html>
+    </html>
